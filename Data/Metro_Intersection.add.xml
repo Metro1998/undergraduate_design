@@ -1,0 +1,10 @@
+<additional>
+  <edgeData file="Output_Data/east_u.xml" freq="30" id="east_u"/>
+  <edgeData file="Output_Data/south_u.xml" freq="30" id="south_u"/>
+  <edgeData file="Output_Data/north_u.xml" freq="30" id="north_u"/>
+  <edgeData file="Output_Data/west_u.xml" freq="30" id="west_u"/>
+  <timedEvent dest="Output_Data/output_signalstates.xml" source="SmartMetro" type="SaveTLSStates"/>
+  <timedEvent dest="Output_Data/output_signalstatesswitch.xml" source="SmartMetro" type="SaveTLSSwitchTimes"/>
+  <timedEvent dest="Output_Data/output_signalstatesswitchstates.xml" source="SmartMetro" type="SaveTLSSwitchStates"/>
+  <e1Detector id="D_1" lane="west_c_0" pos="50" freq="30" file="cross.out" friendlyPos="x"/>
+</additional>

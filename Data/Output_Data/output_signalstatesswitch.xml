@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 05/06/21 09:46:12 by Eclipse SUMO sumo Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="Data/Metro_Intersection.net.xml"/>
+        <route-files value="Data/Metro_Intersection.rou.xml"/>
+        <additional-files value="Data/Metro_Intersection.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <report>
+        <verbose value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="52459"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<tlsSwitches xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tlsswitches_file.xsd">
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="0.00" end="47.00" duration="47.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="0.00" end="47.00" duration="47.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="0.00" end="47.00" duration="47.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="0.00" end="47.00" duration="47.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="50.00" end="60.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="50.00" end="60.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="50.00" end="60.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="50.00" end="60.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="63.00" end="73.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="63.00" end="73.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="63.00" end="73.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="63.00" end="73.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_0" begin="76.00" end="86.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_1" begin="76.00" end="86.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="76.00" end="86.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="76.00" end="86.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="89.00" end="99.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="89.00" end="99.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="89.00" end="99.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="89.00" end="99.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_0" begin="102.00" end="112.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_1" begin="102.00" end="112.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="102.00" end="112.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="102.00" end="112.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="115.00" end="125.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="115.00" end="125.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="115.00" end="125.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="115.00" end="125.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_0" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_1" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_0" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_1" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_0" toLane="east_out_0" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_0" toLane="east_out_1" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_0" toLane="south_out_0" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_0" toLane="south_out_1" begin="0.00" end="128.00" duration="128.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_0" begin="131.00" end="141.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_1" begin="131.00" end="141.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_0" begin="131.00" end="141.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_1" begin="131.00" end="141.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="144.00" end="150.00" duration="6.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="144.00" end="150.00" duration="6.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="144.00" end="150.00" duration="6.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="144.00" end="150.00" duration="6.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="153.00" end="163.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="153.00" end="163.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="153.00" end="163.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="153.00" end="163.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="166.00" end="176.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="166.00" end="176.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="166.00" end="176.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="166.00" end="176.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_0" begin="179.00" end="189.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_1" begin="179.00" end="189.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="179.00" end="189.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="179.00" end="189.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="192.00" end="202.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="192.00" end="202.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="192.00" end="202.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="192.00" end="202.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_0" begin="205.00" end="215.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_1" begin="205.00" end="215.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="205.00" end="215.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="205.00" end="215.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="218.00" end="228.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="218.00" end="228.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="218.00" end="228.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="218.00" end="228.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_0" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_1" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_0" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_1" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_0" toLane="east_out_0" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_0" toLane="east_out_1" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_0" toLane="south_out_0" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_0" toLane="south_out_1" begin="131.00" end="231.00" duration="100.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_0" begin="234.00" end="244.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_1" begin="234.00" end="244.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_0" begin="234.00" end="244.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_1" begin="234.00" end="244.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="247.00" end="273.00" duration="26.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="247.00" end="273.00" duration="26.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="247.00" end="273.00" duration="26.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="247.00" end="273.00" duration="26.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="276.00" end="286.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="276.00" end="286.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="276.00" end="286.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="276.00" end="286.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="289.00" end="299.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="289.00" end="299.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="289.00" end="299.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="289.00" end="299.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_0" begin="302.00" end="312.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_1" toLane="south_out_1" begin="302.00" end="312.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_0" begin="302.00" end="312.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_2" toLane="east_out_1" begin="302.00" end="312.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="315.00" end="325.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="315.00" end="325.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_0" begin="315.00" end="325.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_2" toLane="south_out_1" begin="315.00" end="325.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_0" begin="328.00" end="338.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_1" toLane="north_out_1" begin="328.00" end="338.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_0" begin="328.00" end="338.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_2" toLane="west_out_1" begin="328.00" end="338.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="341.00" end="351.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="341.00" end="351.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_0" begin="341.00" end="351.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_2" toLane="north_out_1" begin="341.00" end="351.00" duration="10.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_0" begin="234.00" end="354.00" duration="120.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="north_c_0" toLane="west_out_1" begin="234.00" end="354.00" duration="120.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_0" begin="234.00" end="354.00" duration="120.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_0" toLane="north_out_1" begin="234.00" end="354.00" duration="120.00"/>
+   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="south_c_0" toLane="east_out_0" begin="234.00" end="354.00" duration="120.00"/>
+   <tlsSwi
