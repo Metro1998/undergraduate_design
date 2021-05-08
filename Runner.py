@@ -156,8 +156,8 @@ def run():
         traci.simulationStep()
         vehID = Utils.get_vehID(Para_dict.edgeID_list)
         vehicle_position_type = Utils.get_veh_position_type(vehID)
-        print(vehicle_position_type)
-
+        chess = Utils.chessboard(vehicle_position_type)
+        print(chess)
         if traci.trafficlight.getPhase("SmartMetro") == 2:
             # we are not already switching
             if traci.inductionloop.getLastStepVehicleNumber("D_1") > 0:
