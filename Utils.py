@@ -79,9 +79,7 @@ def chessboard(vehicle_position_type):
                 m_south[int(row_index)][int(column_index)] = j[2]
     m = np.stack((m_east, m_north, m_west, m_south))
     return m
-"""
-def block_transformation(action, chess)
-"""
+
 
 
 

@@ -25,8 +25,11 @@
 </configuration>
 -->
 
+<tlsStates xmlns:xsi="http://www.w3.org/200-->
+
 <tlsStates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tlsstates_file.xsd">
-    <tlsState time="0.00" id="SmartMetro" programID="SmartMetro_V0" phase="2" state="GGrrrrGGGGrrGGrrrrGGGGrr"/>
+</tlsStates>
+V0" phase="2" state="GGrrrrGGGGrrGGrrrrGGGGrr"/>
     <tlsState time="47.00" id="SmartMetro" programID="SmartMetro_V0" phase="3" state="GGrrrrGGyyrrGGrrrrGGyyrr"/>
     <tlsState time="50.00" id="SmartMetro" programID="SmartMetro_V0" phase="4" state="GGrrGGGGrrrrGGrrGGGGrrrr"/>
     <tlsState time="60.00" id="SmartMetro" programID="SmartMetro_V0" phase="5" state="GGrryyGGrrrrGGrryyGGrrrr"/>

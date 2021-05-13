@@ -25,8 +25,11 @@
 </configuration>
 -->
 
+<tlsSwitches xmlns:xsi="http://www.w3.org/2-->
+
 <tlsSwitches xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tlsswitches_file.xsd">
-   <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_0" begin="0.00" end="47.00" duration="47.00"/>
+</tlsSwitches>
+east_c_1" toLane="west_out_0" begin="0.00" end="47.00" duration="47.00"/>
    <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="east_c_1" toLane="west_out_1" begin="0.00" end="47.00" duration="47.00"/>
    <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_0" begin="0.00" end="47.00" duration="47.00"/>
    <tlsSwitch id="SmartMetro" programID="SmartMetro_V0" fromLane="west_c_1" toLane="east_out_1" begin="0.00" end="47.00" duration="47.00"/>

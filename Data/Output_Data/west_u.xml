@@ -25,9 +25,11 @@
 </configuration>
 -->
 
+<meandata xmlns:xsi="http://www.w3.org/2001-->
+
 <meandata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/meandata_file.xsd">
-    <interval begin="0.00" end="30.00" id="west_u">
-        <edge id="east_c" sampledSeconds="0.00" departed="0" arrived="0" entered="0" left="0" laneChangedFrom="0" laneChangedTo="0"/>
+</meandata>
+dge id="east_c" sampledSeconds="0.00" departed="0" arrived="0" entered="0" left="0" laneChangedFrom="0" laneChangedTo="0"/>
         <edge id="east_out" sampledSeconds="0.00" departed="0" arrived="0" entered="0" left="0" laneChangedFrom="0" laneChangedTo="0"/>
         <edge id="east_u" sampledSeconds="64.00" traveltime="41.51" overlapTraveltime="42.21" density="7.21" laneDensity="3.60" occupancy="1.80" waitingTime="0.00" timeLoss="36.62" speed="7.13" departed="4" arrived="0" entered="0" left="0" laneChangedFrom="1" laneChangedTo="1"/>
         <edge id="north_c" sampledSeconds="0.00" departed="0" arrived="0" entered="0" left="0" laneChangedFrom="0" laneChangedTo="0"/>

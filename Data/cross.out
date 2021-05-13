@@ -25,8 +25,11 @@
 </configuration>
 -->
 
+<detector xmlns:xsi="http://www.w3.org/2001-->
+
 <detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
-    <interval begin="0.00" end="30.00" id="D_1" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
+</detector>
+ flow="0.00" occupancy="0.00" speed="-1.00" harmonicMeanSpeed="-1.00" length="-1.00" nVehEntered="0"/>
     <interval begin="30.00" end="60.00" id="D_1" nVehContrib="1" flow="120.00" occupancy="1.01" speed="16.45" harmonicMeanSpeed="16.45" length="5.00" nVehEntered="1"/>
     <interval begin="60.00" end="90.00" id="D_1" nVehContrib="1" flow="120.00" occupancy="1.02" speed="16.29" harmonicMeanSpeed="16.29" length="5.00" nVehEntered="1"/>
     <interval begin="90.00" end="120.00" id="D_1" nVehContrib="1" flow="120.00" occupancy="1.00" speed="16.67" harmonicMeanSpeed="16.67" length="5.00" nVehEntered="1"/>
