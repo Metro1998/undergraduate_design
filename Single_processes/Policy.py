@@ -11,9 +11,21 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.distributions import Categorical
 
+#Hyperparameters
+learning_rate = 0.01
+gamma = 0.99
+episodes = 20000
+render = False
+eps = np.finfo(np.float32).eps.item()
+SavedAction = namedtuple('SavedAction',['log_prob', 'value'])
+
 class Policy(nn.Module):
     def __init__(self):
         super(Policy, self).__init__()
+
+        self.save_actions = []
+        self.rewards = []
+        os.makedirs('./AC_SmartMetro-v0', exist_ok=True)
 
         self.conv1 = nn.Sequential(
             nn.Conv2d(                       # (8,6,60)
@@ -29,19 +41,31 @@ class Policy(nn.Module):
         self.linear1 = nn.Linear(6*30,1)
 
     def forward(self, x):
-        action_score1 = torch.zeros(1,8)
-        action_score2 = torch.zeros(1,8)
-        x1 = x[0:7, :, :]               # (batch_size,8,6,30)
-        x2 = x[8:15, :, :]
-        x1 = self.conv1(x1)
-        x2 = self.conv1(x2)
-        for i in range(0,8,1):
-            x1 = x1[i, :, :]
-            x2 = x2[i, :, :]
-            action_score1[i] = self.linear1(x1)
-            action_score2[i] = self.linear1(x2)
+        # x:(batch_size,16,6,30)
 
+        # action_score & state_value
+        x1, x2 = x.chunk(2, dim=0)      # (batch_size,8,6,30)
+        x_ = torch.stack([x1, x2], dim=0)
+        state_value = torch.zeros(1, 16)
+        for i in range(0,2,1):
+            x_i = x_[i,:]
+            x_i = self.conv1(x_i)
+            for j in range(0,8,1):
+                x_j = x_i[j,:]
+                state_value[0,j+i*8] = self.linear1(x_j)
+        action_score_ = F.softmax(state_value[:,0:7], dim=2)+F.softmax(state_value[:,8:15], dim=2)
+        probs = F.softmax(action_score_, dim=2)
+        return probs, state_value
+model = Policy()
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-        x = x.view(8, -1)     # (batch_size,8,6*30)
-        out = self.m(x)  # (batch_size,8)
+     def select_action(state):
+         state = torch.from_numpy(state).float()
+         probs, state_value = model(state)
+         m = Categorical(probs)
+         action = m.sample()
+         model.save_actions.append(SavedAction(m.log_prob(action), state_value))
+
+         return action.item()
+
 
