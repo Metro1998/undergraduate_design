@@ -69,3 +69,29 @@ optimizer = optim.Adam(model.parameters(), lr=learning_rate)
          return action.item()
 
 
+     def finish_episode():
+         R = 0
+         save_actions = model.save_actions
+         policy_loss = []
+         value_loss = []
+         rewards = []
+
+         for r in model.rewards[::-1]:
+             R = r + gamma * R
+             rewards.insert(0, R)  # [.....r+gamma*R, R]
+
+         rewards = torch.tensor(rewards)
+         rewards = (rewards - rewards.mean()) / (rewards.std() + eps)
+
+         for (log_prob, value), r in zip(save_actions, rewards):
+             reward = r - value.item()
+             policy_loss.append(-log_prob * reward)
+             value_loss.append(F.smooth_l1_loss(value_loss, torch.tensor([r])))
+
+         optimizer.zero_grad()
+         loss = torch.stack(policy_loss).sum() + torch.stack(value_loss).sum()
+         loss.backward()
+         optimizer.step()
+
+         del model.rewards[:]
+         del model.save_actions[:]
