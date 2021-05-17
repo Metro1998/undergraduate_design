@@ -73,18 +73,18 @@ class GaussianPolicy(nn.Module):
 
         self.apply(weights_init_)
 
-        """
+
            # action rescaling
         if action_space is None:
             self.action_scale = torch.tensor(1.)
             self.action_bias = torch.tensor(0.)
         else:
-            self.action_scale = torch.FloatTensor(
+            self.action_scale = torch.tensor(
                 (action_space.high-action_space.low) / 2.)
-            self.action_bias = torch.FloatTensor(
+            self.action_bias = torch.tensor(
                 (action_space.high-action_space.low) / 2.)
 
-        """
+
 
     def forward(self, state):
         x = F.relu(self.linear1(state))
@@ -95,8 +95,8 @@ class GaussianPolicy(nn.Module):
         # Constrict every element in log_std in to [LOG_SIG_MIN, LOG_SIG_MAX]
         return mean, log_std
 
-    """
-        def sample(self, state):
+
+    def sample(self, state):
         mean, log_std = self.forward(state)
         std = log_std.exp()
         normal = Normal(mean, std)
@@ -104,21 +104,11 @@ class GaussianPolicy(nn.Module):
         # first sample from Normal(0,1), then output (mean + std * N(0,1))
         y_t = torch.tanh(x_t)
         action = y_t * self.action_scale + self.action_bias
+        # Why rescaling? Cause the bound of tanh is (-1, 1), but the bound of action is not.
         log_prob = normal.log_prob(x_t)
+        # log_prob(value)是计算value在定义的正态分布中对应的概率的对数
         # Enforcing Action Bound
         log_prob -= torch.log(self.action_scale * (1 - y_t.pow(2) + epsilon))
         log_prob = log_prob.sum(1, keepdim=True)
         mean = torch.tanh(mean) * self.action_scale + self.action_bias
         return action, log_prob, mean
-    """
-
-"""
-class DeterministicPolicy(nn.Module):
-    def __init__(self, num_inputs, num_actions, hiden_dim, action_space=None):
-        super(DeterministicPolicy, self).__init__()
-        self.linear1 = nn.Linear(num_inputs, hiden_dim)
-        self.linear2 = nn.Linear(hiden_dim, hiden_dim)
-        
-        self.mean = nn.Linear(hiden_dim, num_actions)
-        self.noise = torch.
-"""
