@@ -103,12 +103,14 @@ class GaussianPolicy(nn.Module):
         x_t = normal.rsample()
         # first sample from Normal(0,1), then output (mean + std * N(0,1))
         y_t = torch.tanh(x_t)
+        # (-1, 1)
+        # continuous action space
         action = y_t * self.action_scale + self.action_bias
         # Why rescaling? Cause the bound of tanh is (-1, 1), but the bound of action is not.
         log_prob = normal.log_prob(x_t)
         # log_prob(value)是计算value在定义的正态分布中对应的概率的对数
         # Enforcing Action Bound
         log_prob -= torch.log(self.action_scale * (1 - y_t.pow(2) + epsilon))
-        log_prob = log_prob.sum(1, keepdim=True)
+        log_prob = log_prob.sum(1, keepdim=True) # TODO
         mean = torch.tanh(mean) * self.action_scale + self.action_bias
         return action, log_prob, mean

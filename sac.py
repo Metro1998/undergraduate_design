@@ -27,7 +27,7 @@ class SAC(object):
         hard_update(self.critic_target, self.critic)
         # Copy the parameters of critic to critic_target
 
-        if self.policy_type == "Gaussian":
+        if self.policy_type == "Gaussian": # TODO
             if self.automatic_entropy_tuning is True:
                 self.target_entropy = -torch.prod(torch.Tensor(action_space.shape).to(self.device)).item()
                 self.log_alpha = torch.zeros(1, requires_grad=True, device=self.device)

@@ -1,54 +1,57 @@
 <net>
   <edge function="normal" id="east_u" numLanes="2" from="east_input" to="east_interface">
-    <lane index="0" length="300" shape="420,5.25 120,5.25" speed="40.0"/>
-    <lane index="1" length="300" shape="420,1.75 120,1.75" speed="40.0"/>
+    <lane index="0" length="195" shape="250,8.50 55,8.50" speed="40.0"/>
+    <lane index="1" length="195" shape="250,4.75 55,4.75" speed="40.0"/>
   </edge>
   <edge function="normal" id="east_c" numLanes="3" from="east_interface" to="SmartMetro">
-    <lane index="0" length="105" shape="120,8.75 15,8.75" speed="40.0" allow="passenger"/>
-    <lane index="1" length="105" shape="120,5.25 15,5.25" speed="40.0" allow="passenger"/>
-    <lane index="2" length="105" shape="120,1.75 15,1.75" speed="40.0" allow="passenger"/>
+    <lane index="0" length="25" shape="55,8.50 30,8.50" speed="40.0" allow="passenger"/>
+    <lane index="1" length="25" shape="55,4.75 30,4.75" speed="40.0" allow="passenger"/>
+    <lane index="2" length="25" shape="55,1.00 30,1.00" speed="40.0" allow="passenger"/>
   </edge>
-  <edge function="normal" id="east_out" length="405" numLanes="2" from="SmartMetro" to="east_input">
-    <lane index="0" length="405" shape="15,-5.25 420,-5.25" speed="40.0"/>
-    <lane index="1" length="405" shape="15,-1.75 420,-1.75" speed="40.0"/>
+  <edge function="normal" id="east_out" numLanes="2" from="SmartMetro" to="east_input">
+    <lane index="0" length="220" shape="30,-2.75 250,-2.75" speed="40.0"/>
+    <lane index="1" length="220" shape="30,-6.50 250,-6.50" speed="40.0"/>
   </edge>
+
   <edge function="normal" id="south_u" numLanes="2" from="south_input" to="south_interface">
-    <lane index="0" length="300" shape="5.25,-420 5.25,-120" speed="40.0"/>
-    <lane index="1" length="300" shape="1.75,-420 1.75,-120" speed="40.0"/>
+    <lane index="0" length="195" shape="8.50,-250 8.50,-55" speed="40.0"/>
+    <lane index="1" length="195" shape="4.75,-250 4.75,-55" speed="40.0"/>
   </edge>
   <edge function="normal" id="south_c" numLanes="3" from="south_interface" to="SmartMetro">
-    <lane index="0" length="105" shape="8.75,-120 8.75,-15" speed="40.0" allow="passenger"/>
-    <lane index="1" length="105" shape="5.25,-120 5.25,-15" speed="40.0" allow="passenger"/>
-    <lane index="2" length="105" shape="1.75,-120 1.75,-15" speed="40.0" allow="passenger"/>
+    <lane index="0" length="25" shape="8.50,-55 8.50,-30" speed="40.0" allow="passenger"/>
+    <lane index="1" length="25" shape="4.75,-55 4.75,-30" speed="40.0" allow="passenger"/>
+    <lane index="2" length="25" shape="1.00,-55 1.00,-30" speed="40.0" allow="passenger"/>
   </edge>
-  <edge function="normal" id="south_out" length="405" numLanes="2" from="SmartMetro" to="south_input">
-    <lane index="0" length="405" shape="-5.25,-15 -5.25,-420" speed="40.0"/>
-    <lane index="1" length="405" shape="-1.75,-15 -1.75,-420" speed="40.0"/>
+  <edge function="normal" id="south_out" numLanes="2" from="SmartMetro" to="south_input">
+    <lane index="0" length="220" shape="-2.75,-30 -2.75,-250" speed="40.0"/>
+    <lane index="1" length="220" shape="-6.50,-30 -6.50,-250" speed="40.0"/>
   </edge>
+
   <edge function="normal" id="west_u" numLanes="2" from="west_input" to="west_interface">
-    <lane index="0" length="300" shape="-420,-5.25 -120,-5.25" speed="40.0"/>
-    <lane index="1" length="300" shape="-420,-1.75 -120,-1.75" speed="40.0"/>
+    <lane index="0" length="195" shape="-250,-8.50 -55,-8.50" speed="40.0"/>
+    <lane index="1" length="195" shape="-250,-4.75 -55,-4.75" speed="40.0"/>
   </edge>
   <edge function="normal" id="west_c" numLanes="3" from="west_interface" to="SmartMetro">
-    <lane index="0" length="105" shape="-120,-8.75 -15,-8.75" speed="40.0" allow="passenger"/>
-    <lane index="1" length="105" shape="-120,-5.25 -15,-5.25" speed="40.0" allow="passenger"/>
-    <lane index="2" length="105" shape="-120,-1.75 -15,-1.75" speed="40.0" allow="passenger"/>
+    <lane index="0" length="25" shape="-55,-8.50 -30,-8.50" speed="40.0" allow="passenger"/>
+    <lane index="1" length="25" shape="-55,-4.75 -30,-4.75" speed="40.0" allow="passenger"/>
+    <lane index="2" length="25" shape="-55,-1.00 -30,-1.00" speed="40.0" allow="passenger"/>
   </edge>
-  <edge function="normal" id="west_out" length="405" numLanes="2" from="SmartMetro" to="west_input">
-    <lane index="0" length="405" shape="-15,5.25 -420,5.25" speed="40.0"/>
-    <lane index="1" length="405" shape="-15,1.75 -420,1.75" speed="40.0"/>
+  <edge function="normal" id="west_out"  numLanes="2" from="SmartMetro" to="west_input">
+    <lane index="0" length="220" shape="-30,2.75 -250,2.75" speed="40.0"/>
+    <lane index="1" length="220" shape="-30,6.50 -250,6.50" speed="40.0"/>
   </edge>
+
   <edge function="normal" id="north_u" numLanes="2" from="north_input" to="north_interface">
-    <lane index="0" length="300" shape="-5.25,420 -5.25,120" speed="40.0"/>
-    <lane index="1" length="300" shape="-1.75,420 -1.75,120" speed="40.0"/>
+    <lane index="0" length="195" shape="-8.50,250 -8.50,55" speed="40.0"/>
+    <lane index="1" length="195" shape="-4.75,250 -4.75,55" speed="40.0"/>
   </edge>
   <edge function="normal" id="north_c" numLanes="3" from="north_interface" to="SmartMetro">
-    <lane index="0" length="105" shape="-8.75,120 -8.75,15" speed="40.0" allow="passenger"/>
-    <lane index="1" length="105" shape="-5.25,120 -5.25,15" speed="40.0" allow="passenger"/>
-    <lane index="2" length="105" shape="-1.75,120 -1.75,15" speed="40.0" allow="passenger"/>
+    <lane index="0" length="25" shape="-8.50,55 -8.50,30" speed="40.0" allow="passenger"/>
+    <lane index="1" length="25" shape="-4.75,55 -4.75,30" speed="40.0" allow="passenger"/>
+    <lane index="2" length="25" shape="-1.00,55 -1.00,30" speed="40.0" allow="passenger"/>
   </edge>
-  <edge function="normal" id="north_out" length="405" numLanes="2" from="SmartMetro" to="north_input">
-    <lane index="0" length="405" shape="5.25,15 5.25,420" speed="40.0"/>
-    <lane index="1" length="405" shape="1.75,15 1.75,420" speed="40.0"/>
+  <edge function="normal" id="north_out" numLanes="2" from="SmartMetro" to="north_input">
+    <lane index="0" length="220" shape="2.75,30 2.75,250" speed="40.0"/>
+    <lane index="1" length="220" shape="6.50,30 6.50,250" speed="40.0"/>
   </edge>
 </net>

@@ -69,6 +69,7 @@ total_numsteps = 0
 updates = 0
 
 for i_episode in itertools.count(1):
+    # step = 1
     episode_reward = 0
     episode_steps = 0
     done = False
@@ -84,6 +85,7 @@ for i_episode in itertools.count(1):
             # Number of updates per step in environment
             for i in range(args.updates_per_step):
                 # Update parameters of all the networks
+                # default 1
                 critic_1_loss, critic_2_loss, policy_loss, ent_loss, alpha = agent.update_parameters(memory, args.batch_size, updates)
 
                 writer.add_scalar('loss/critic_1', critic_1_loss, updates)
