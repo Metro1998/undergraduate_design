@@ -76,8 +76,11 @@ class SAC(object):
         qf_loss = qf1_loss + qf2_loss
 
         self.critic_optim.zero_grad()
+        # Clear the cumulative grad
         qf_loss.backward()
+        # Get grad via backward()
         self.critic_optim.step()
+        # Update the para via grad
 
         pi, log_pi, _ = self.policy.sample(state_batch)
 
@@ -92,7 +95,7 @@ class SAC(object):
         self.policy_optim.step()
 
         if self.automatic_entropy_tuning:
-            alpha_loss = -(self.log_alpha * (log_pi + self.target_entropy).detach()).mean()
+            alpha_loss = -(self.log_alpha * (log_pi + self.target_entropy).detach()).mean() # TODO
 
             self.alpha_optim.zero_grad()
             alpha_loss.backward()
@@ -121,6 +124,7 @@ class SAC(object):
             critic_path = "models/sac_critic_{}_{}".format(env_name, suffix)
         print('Saving models to {} and {}'.format(actor_path, critic_path))
         torch.save(self.policy.state_dict(), actor_path)
+        # state_dict() stores the parameters of layers and optimizers which have grad
         torch.save(self.critic.state_dict(), critic_path)
 
     # Load model parameters

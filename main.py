@@ -52,6 +52,7 @@ env.seed(args.seed)
 env.action_space.seed(args.seed)
 
 torch.manual_seed(args.seed)
+torch.cuda.manual_seed(args.seed)
 np.random.seed(args.seed)
 
 # Agent
@@ -87,6 +88,7 @@ for i_episode in itertools.count(1):
                 # Update parameters of all the networks
                 # default 1
                 critic_1_loss, critic_2_loss, policy_loss, ent_loss, alpha = agent.update_parameters(memory, args.batch_size, updates)
+                # updates is just a counting parameter
 
                 writer.add_scalar('loss/critic_1', critic_1_loss, updates)
                 writer.add_scalar('loss/critic_2', critic_2_loss, updates)
@@ -117,7 +119,7 @@ for i_episode in itertools.count(1):
     if i_episode % 10 == 0 and args.eval is True:
         avg_reward = 0.
         episodes = 10
-        for _  in range(episodes):
+        for _ in range(episodes):
             state = env.reset()
             episode_reward = 0
             done = False
