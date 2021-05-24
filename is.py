@@ -5,6 +5,7 @@ import math
 import gym
 import numpy as np
 from abc import ABC
+import traci
 
 
 class ISpilloverEnv(gym.Env, ABC):
@@ -40,11 +41,25 @@ class ISpilloverEnv(gym.Env, ABC):
     """
 
     def __init__(self):
-        self.action_space = gym.spaces.Discrete(2)
+        self.action_space = gym.spaces.Discrete(8)
         self.observation_space = gym.spaces.Box(low, high=, shape=, dtype=np.float32)
 
         self.seed()
         self.state = None
 
     def seed(self, seed=None):
-        self.np_random, seed = seeding.np
+        self.np_random, seed = seeding.np_random(seed)
+        return [seed]
+
+    def step(self, action):
+        err_msg = "%r (%s) invalid" % (action, type(action))
+        assert self.action_space.contains(action), err_msg
+
+        sumoBinary = "D:/sumo/bin/sumo-gui"
+        sumoCmd = [sumoBinary, "-c", "Metro_Intersection.sumocfg"]
+        traci.start(sumoCmd)
+
+        self.state
+        reward
+        done
+

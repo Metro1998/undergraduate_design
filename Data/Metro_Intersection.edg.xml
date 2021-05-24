@@ -1,7 +1,7 @@
 <net>
   <edge function="normal" id="east_u" numLanes="2" from="east_input" to="east_interface" width="3.75" >
-    <lane index="0"  shape="250,9.35 50,9.35" speed="40.0"/>
-    <lane index="1"  shape="250,5.60 50,5.60" speed="40.0"/>
+    <lane index="0"  shape="250,9.38 50,9.38" speed="40.0"/>
+    <lane index="1"  shape="250,5.63 50,5.63" speed="40.0"/>
   </edge>
   <edge function="normal" id="east_c" numLanes="3" from="east_interface" to="SmartMetro" width="3.75">
   </edge>
@@ -9,8 +9,8 @@
   </edge>
 
   <edge function="normal" id="south_u" numLanes="2" from="south_input" to="south_interface" width="3.75">
-    <lane index="0" shape="9.35,-250 9.35,-50" speed="40.0"/>
-    <lane index="1" shape="5.60,-250 5.60,-50" speed="40.0"/>
+    <lane index="0" shape="9.38,-250 9.38,-50" speed="40.0"/>
+    <lane index="1" shape="5.63,-250 5.63,-50" speed="40.0"/>
   </edge>
   <edge function="normal" id="south_c" numLanes="3" from="south_interface" to="SmartMetro" width="3.75">
   </edge>
@@ -18,8 +18,8 @@
   </edge>
 
   <edge function="normal" id="west_u" numLanes="2" from="west_input" to="west_interface" width="3.75">
-    <lane index="0"  shape="-250,-9.35 -50,-9.35" speed="40.0"/>
-    <lane index="1"  shape="-250,-5.60 -50,-5.60" speed="40.0"/>
+    <lane index="0"  shape="-250,-9.38 -50,-9.38" speed="40.0"/>
+    <lane index="1"  shape="-250,-5.63 -50,-5.63" speed="40.0"/>
   </edge>
   <edge function="normal" id="west_c" numLanes="3" from="west_interface" to="SmartMetro" width="3.75">
   </edge>
@@ -27,8 +27,8 @@
   </edge>
 
   <edge function="normal" id="north_u" numLanes="2" from="north_input" to="north_interface" width="3.75">
-    <lane index="0"  shape="-9.35,250 -9.35,50" speed="40.0"/>
-    <lane index="1"  shape="-5.60,250 -5.60,50" speed="40.0"/>
+    <lane index="0"  shape="-9.38,250 -9.38,50" speed="40.0"/>
+    <lane index="1"  shape="-5.63,250 -5.63,50" speed="40.0"/>
   </edge>
   <edge function="normal" id="north_c" numLanes="3" from="north_interface" to="SmartMetro" width="3.75">
   </edge>

@@ -25,7 +25,7 @@ import os
 import sys
 import optparse
 import random
-import Utils
+import utils
 import Para_dict
 
 # we need to import python modules from the $SUMO_HOME/tools directory
@@ -154,9 +154,9 @@ def run():
     traci.trafficlight.setPhase("SmartMetro", 2)
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
-        vehID = Utils.get_vehID(Para_dict.edgeID_list)
-        vehicle_position_type = Utils.get_veh_position_type(vehID)
-        chess = Utils.chessboard(vehicle_position_type)
+        vehID = utils.get_vehID(Para_dict.edgeID_list)
+        vehicle_position_type = utils.get_veh_position_type(vehID)
+        chess = utils.chessboard(vehicle_position_type)
         print(chess)
         if traci.trafficlight.getPhase("SmartMetro") == 2:
             # we are not already switching
