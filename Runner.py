@@ -26,7 +26,7 @@ import sys
 import optparse
 import random
 import utils
-import Para_dict
+import para_dict
 
 # we need to import python modules from the $SUMO_HOME/tools directory
 if 'SUMO_HOME' in os.environ:
@@ -47,13 +47,13 @@ def generate_routefile():
     # demand per second from different directions
     pEN = 1./ 10
     pEW = 1./ 11
-    pES = 1./ 23
-    pNW = 1./ 24
-    pNS = 1./ 25
-    pNE = 1./ 17
-    pWS = 1./ 18
+    pES = 1./ 9
+    pNW = 1./ 8
+    pNS = 1./ 10
+    pNE = 1./ 7
+    pWS = 1./ 21
     pWE = 1./ 19
-    pWN = 1./ 20
+    pWN = 1./ 15
     pSE = 1./ 21
     pSN = 1./ 17
     pSW = 1./ 15
@@ -61,15 +61,15 @@ def generate_routefile():
     with open("Data/Metro_Intersection.rou.xml", "w") as routes:
         routes.truncate()
         print("""<routes>
-        <vType id="passenger_left" accel="0.8" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="16.67" \
-guiShape="passenger"/>
-        <vType id="passenger_through" accel="0.8" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="16.67" \
-guiShape="passenger"/>
-        <vType id="passenger_right" accel="0.8" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="16.67" \
-guiShape="passenger"/>
-        <vType id="bus_left" accel="0.8" decel="4.5" sigma="0.5" length="7" minGap="3" maxSpeed="25" guiShape="bus"/>
-        <vType id="bus_through" accel="0.8" decel="4.5" sigma="0.5" length="7" minGap="3" maxSpeed="25" guiShape="bus"/>
-        <vType id="bus_right" accel="0.8" decel="4.5" sigma="0.5" length="7" minGap="3" maxSpeed="25" guiShape="bus"/>
+        <vType vClass="private" sigma="0.5" lcStrategic="1.0" jmIgnoreKeepClearTime="0"\
+        id="CAV_left" decel="4.5" color="0,255,0" carFollowModel="IDM" accel="3.0" xmlns:maxSpeed="40.0" xmlns:length="5"/>
+        
+        <vType vClass="custom1" sigma="0.5" lcStrategic="1.0" jmIgnoreKeepClearTime="0"\
+        id="CAV_through" decel="4.5" color="24,116,205" carFollowModel="IDM" accel="3.0" xmlns:maxSpeed="40.0" xmlns:length="5"/>
+        
+        <vType vClass="custom2" sigma="0.5" lcStrategic="1.0" jmIgnoreKeepClearTime="0"\
+        id="CAV_right" decel="4.5" color="218,112,214" carFollowModel="IDM" accel="3.0" xmlns:maxSpeed="40.0" xmlns:length="5"/>
+        
         <route id="EN" edges="east_u east_c north_out" />
         <route id="EW" edges="east_u east_c west_out" />
         <route id="ES" edges="east_u east_c south_out" />
@@ -86,51 +86,51 @@ guiShape="passenger"/>
         vehNr = 0
         for i in range(N):
             if random.uniform(0, 1) < pEN:
-                print('    <vehicle id="%i" type="passenger_right" route="EN" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_right" route="EN" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pEW:
-                print('    <vehicle id="%i" type="passenger_through" route="EW" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_through" route="EW" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pES:
-                print('    <vehicle id="%i" type="passenger_left" route="ES" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_left" route="ES" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pNW:
-                print('    <vehicle id="%i" type="passenger_right" route="NW" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_right" route="NW" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pNS:
-                print('    <vehicle id="%i" type="passenger_through" route="NS" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_through" route="NS" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pNE:
-                print('    <vehicle id="%i" type="passenger_left" route="NE" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_left" route="NE" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pWS:
-                print('    <vehicle id="%i" type="passenger_right" route="WS" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_right" route="WS" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pWE:
-                print('    <vehicle id="%i" type="passenger_through" route="WE" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_through" route="WE" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pWN:
-                print('    <vehicle id="%i" type="passenger_left" route="WN" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_left" route="WN" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pSE:
-                print('    <vehicle id="%i" type="passenger_right" route="SE" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_right" route="SE" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pSN:
-                print('    <vehicle id="%i" type="passenger_through" route="SN" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_through" route="SN" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
             if random.uniform(0, 1) < pSW:
-                print('    <vehicle id="%i" type="passenger_left" route="SW" depart="%i" />' % (
+                print('    <vehicle id="%i" type="CAV_left" route="SW" depart="%i" />' % (
                     vehNr, i), file=routes)
                 vehNr += 1
         print("</routes>", file=routes)
@@ -154,10 +154,14 @@ def run():
     traci.trafficlight.setPhase("SmartMetro", 2)
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
-        vehID = utils.get_vehID(Para_dict.edgeID_list)
-        vehicle_position_type = utils.get_veh_position_type(vehID)
+        vehID = utils.get_vehID(para_dict.edgeID_list)
+        print(vehID)
+        """
+           vehicle_position_type = utils.get_veh_position_type(vehID)
         chess = utils.chessboard(vehicle_position_type)
         print(chess)
+        """
+
         if traci.trafficlight.getPhase("SmartMetro") == 2:
             # we are not already switching
             if traci.inductionloop.getLastStepVehicleNumber("D_1") > 0:

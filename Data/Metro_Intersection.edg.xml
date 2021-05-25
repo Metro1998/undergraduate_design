@@ -4,6 +4,9 @@
     <lane index="1"  shape="250,5.63 50,5.63" speed="40.0"/>
   </edge>
   <edge function="normal" id="east_c" numLanes="3" from="east_interface" to="SmartMetro" width="3.75">
+    <lane index="0" allow="custom2" speed="40.0"/>
+    <lane index="1" allow="custom1" speed="40.0"/>
+    <lane index="2" allow="private" speed="40.0"/>
   </edge>
   <edge function="normal" id="east_out" numLanes="2" from="SmartMetro" to="east_input" width="3.75">
   </edge>
@@ -13,6 +16,9 @@
     <lane index="1" shape="5.63,-250 5.63,-50" speed="40.0"/>
   </edge>
   <edge function="normal" id="south_c" numLanes="3" from="south_interface" to="SmartMetro" width="3.75">
+    <lane index="0" allow="custom2" speed="40.0"/>
+    <lane index="1" allow="custom1" speed="40.0"/>
+    <lane index="2" allow="private" speed="40.0"/>
   </edge>
   <edge function="normal" id="south_out" numLanes="2" from="SmartMetro" to="south_input" width="3.75">
   </edge>
@@ -22,6 +28,9 @@
     <lane index="1"  shape="-250,-5.63 -50,-5.63" speed="40.0"/>
   </edge>
   <edge function="normal" id="west_c" numLanes="3" from="west_interface" to="SmartMetro" width="3.75">
+    <lane index="0" allow="custom2" speed="40.0"/>
+    <lane index="1" allow="custom1" speed="40.0"/>
+    <lane index="2" allow="private" speed="40.0"/>
   </edge>
   <edge function="normal" id="west_out"  numLanes="2" from="SmartMetro" to="west_input" width="3.75">
   </edge>
@@ -31,6 +40,9 @@
     <lane index="1"  shape="-5.63,250 -5.63,50" speed="40.0"/>
   </edge>
   <edge function="normal" id="north_c" numLanes="3" from="north_interface" to="SmartMetro" width="3.75">
+    <lane index="0" allow="custom2" speed="40.0"/>
+    <lane index="1" allow="custom1" speed="40.0"/>
+    <lane index="2" allow="private" speed="40.0"/>
   </edge>
   <edge function="normal" id="north_out" numLanes="2" from="SmartMetro" to="north_input" width="3.75">
   </edge>

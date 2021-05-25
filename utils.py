@@ -3,7 +3,7 @@
 
 import traci
 import traci.constants as tc
-import Para_dict
+import para_dict
 import numpy as np
 import math
 import torch
@@ -105,6 +105,7 @@ def generate_route(args):
         print("</routes>", file=routes)
 
 
+# in training loop
 def get_vehID(edgeID_list):
     res = []
     for i in edgeID_list:
@@ -160,20 +161,20 @@ def chessboard(vehicle_position_type):
             # In one direction, each vehicle
             if i == 0 or i == 4:
                 # The direction of east
-                row_index = (j[1] - Para_dict.anchor_list_updated[0][2]) // 3.5
-                column_index = (j[0] - Para_dict.anchor_list_updated[0][0]) // 7.5
+                row_index = (j[1] - para_dict.anchor_list_updated[0][2]) // 3.5
+                column_index = (j[0] - para_dict.anchor_list_updated[0][0]) // 7.5
                 m_east[int(row_index)][int(column_index)] = j[2]
             if i == 1 or i == 5:
-                row_index = (Para_dict.anchor_list_updated[1][3] - j[0]) // 3.5
-                column_index = (j[1] - Para_dict.anchor_list_updated[1][0]) // 7.5
+                row_index = (para_dict.anchor_list_updated[1][3] - j[0]) // 3.5
+                column_index = (j[1] - para_dict.anchor_list_updated[1][0]) // 7.5
                 m_north[int(row_index)][int(column_index)] = j[2]
             if i == 2 or i == 6:
-                row_index = (Para_dict.anchor_list_updated[2][3] - j[1]) // 3.5
-                column_index = (Para_dict.anchor_list_updated[2][1] - j[0]) // 7.5
+                row_index = (para_dict.anchor_list_updated[2][3] - j[1]) // 3.5
+                column_index = (para_dict.anchor_list_updated[2][1] - j[0]) // 7.5
                 m_west[int(row_index)][int(column_index)] = j[2]
             if i == 3 or i == 7:
-                row_index = (j[0] - Para_dict.anchor_list_updated[3][2]) // 3.5
-                column_index = (Para_dict.anchor_list_updated[3][1] - j[1]) // 7.5
+                row_index = (j[0] - para_dict.anchor_list_updated[3][2]) // 3.5
+                column_index = (para_dict.anchor_list_updated[3][1] - j[1]) // 7.5
                 m_south[int(row_index)][int(column_index)] = j[2]
     m = np.stack((m_east, m_north, m_west, m_south))
     return m
