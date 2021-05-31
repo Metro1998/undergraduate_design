@@ -46,17 +46,18 @@ class Demand_Modeling(object):
             veh_position_type_edges.append(veh_position_type_edge)
         return veh_position_type_edges
 
-    def get_absolute_demand(self, veh_position_type_edges: list):
+    def get_absolute_demand(self):
         # absolute_demand is a list of 1 * 8, in which
         # the number of vehicles are stored in north to west and left to through respectively
         absolute_demand = [0 for x in range(0, 8)]
+        veh_position_type = self.get_veh_position_type()
+        print(veh_position_type)
         # we use index to indicate the direction
         index = 0
-        for i in veh_position_type_edges[0:4]:
+        for i in veh_position_type[0:4]:
             # now we enter the loop of each vehicle in the c section
             for _ in i:
                 if _[2] == 2:
-                    print(_)
                     absolute_demand[2 * index] += 1
                 if _[2] == 1:
                     absolute_demand[2 * index + 1] += 1
@@ -65,7 +66,7 @@ class Demand_Modeling(object):
             index += 1
         return absolute_demand
 
-    def get_relative_demand(self, veh_position_type_edges: list):
+    def get_relative_demand(self):
         # relative_demand is a list of 1 * 8, in which
         # the number of vehicles are stored in north to west and left to through respectively
         relative_demand = [0 for x in range(0, 8)]
@@ -76,26 +77,27 @@ class Demand_Modeling(object):
         # ----blame space----
         space_for_blame = []
 
+        veh_position_type = self.get_veh_position_type()
         # we use index to indicate the direction
         index = 0
-        for i in veh_position_type_edges[4:8]:
+        for i in veh_position_type[4:8]:
             if index == 0 or index == 2:
                 i.reverse()
             else:
                 pass
             space_for_blame_lane1 = []
             space_for_blame_lane2 = []
-            # now we enter the loop of each vehicle in the c section
+            # now we enter the loop of each vehicle in the u section
             for _ in i:
-                if border_for_blame[index][0] < _[0] < border_for_blame[index][1] and border_for_blame[index][2] < \
-                        _[1] < border_for_blame[index][3]:
+                if border_for_blame[index * 2][0] < _[0] < border_for_blame[index * 2][1] and \
+                        border_for_blame[index * 2][2] < _[1] < border_for_blame[index][3]:
                     space_for_blame_lane1.append(_[2])
-                if border_for_blame[index + 1][0] < _[0] < border_for_blame[index + 1][1] and \
-                        border_for_blame[index + 1][2] < _[1] < border_for_blame[index + 1][3]:
+                elif border_for_blame[index * 2 + 1][0] < _[0] < border_for_blame[index * 2 + 1][1] and \
+                        border_for_blame[index * 2 + 1][2] < _[1] < border_for_blame[index * 2 + 1][3]:
                     space_for_blame_lane2.append(_[2])
                 space_for_blame.append(space_for_blame_lane1)
                 space_for_blame.append(space_for_blame_lane2)
-            index += 2
+            index += 1
 
         # -----get relative demand-----
         # introduction to "blame"
@@ -150,13 +152,12 @@ class Demand_Modeling(object):
         east_2 = [u_section_anchor[1][0], u_section_anchor[1][0] + retrospective_length,
                   u_section_anchor[1][1], u_section_anchor[1][1] + 3.75]
         south_1 = [u_section_anchor[2][0], u_section_anchor[2][0] + 3.75,
-                   u_section_anchor[2][1], u_section_anchor[2][1] + retrospective_length]
+                   u_section_anchor[2][1] - retrospective_length, u_section_anchor[2][1]]
         south_2 = [u_section_anchor[2][0] + 3.75, u_section_anchor[2][0] + 7.5,
-                   u_section_anchor[2][1], u_section_anchor[2][1] + retrospective_length]
-        west_1 = [u_section_anchor[3][0], u_section_anchor[3][0] + retrospective_length,
+                   u_section_anchor[2][1] - retrospective_length, u_section_anchor[2][1]]
+        west_1 = [u_section_anchor[3][0] - retrospective_length, u_section_anchor[3][0],
                   u_section_anchor[3][1], u_section_anchor[3][1] + 3.75]
-        west_2 = [u_section_anchor[3][0], u_section_anchor[3][0] + retrospective_length,
+        west_2 = [u_section_anchor[3][0] - retrospective_length, u_section_anchor[3][0],
                   u_section_anchor[3][1] + 3.75, u_section_anchor[3][1] + 7.5]
         border_for_blame = [north_1, north_2, east_1, east_2, south_1, south_2, west_1, west_2]
         return border_for_blame
-

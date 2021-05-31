@@ -44,15 +44,15 @@ import traci.constants as tc
 
 
 def generate_routefile():
-    random.seed(42)  # make tests reproducible
+    random.seed(32)  # make tests reproducible
     N = 3600  # number of time steps
     # demand per second from different directions
     pEN = 1./ 10
     pEW = 1./ 11
-    pES = 1./ 9
-    pNW = 1./ 8
+    pES = 1./ 12
+    pNW = 1./ 13
     pNS = 1./ 10
-    pNE = 1./ 7
+    pNE = 1./ 15
     pWS = 1./ 21
     pWE = 1./ 19
     pWN = 1./ 15
@@ -61,7 +61,6 @@ def generate_routefile():
     pSW = 1./ 15
 
     with open("Data/Metro_Intersection.rou.xml", "w") as routes:
-        routes.truncate()
         print("""<routes>
         <vType vClass="private" sigma="0.5" lcStrategic="1.0" jmIgnoreKeepClearTime="0"\
         id="CAV_left" decel="4.5" color="0,255,0" carFollowModel="IDM" accel="3.0" xmlns:maxSpeed="40.0" xmlns:length="5"/>
@@ -150,7 +149,6 @@ def generate_routefile():
 
 def run():
     """execute the TraCI control loop"""
-    vehID = []
     step = 0
     # we start with phase 2 where EW has green
     traci.trafficlight.setPhase("SmartMetro", 2)
@@ -158,10 +156,9 @@ def run():
         traci.simulationStep()
         demand = demand_modeling.Demand_Modeling(retrospective_length=50, edge_id=para_dict.edgeID_list, blame=0.7,
                                                  u_section_anchor=para_dict.u_section_anchor)
-        veh_position_type = demand.get_veh_position_type()
-        ab_demand = demand.get_absolute_demand(veh_position_type)
-        # re_demand = demand.get_relative_demand(veh_position_type)
+        ab_demand = demand.get_absolute_demand()
         print(ab_demand)
+        # re_demand = demand.get_relative_demand()
         # print(re_demand)
 
 
@@ -175,15 +172,8 @@ def run():
 
         # chess = utils.chessboard(vehicle_position_type)
 
-        if traci.trafficlight.getPhase("SmartMetro") == 2:
-            # we are not already switching
-            if traci.inductionloop.getLastStepVehicleNumber("D_1") > 0:
-                # there is a vehicle from the north, switch
-                traci.trafficlight.setPhase("SmartMetro", 3)
-            else:
-                # otherwise try to keep green for EW
-                traci.trafficlight.setPhase("SmartMetro", 2)
         step += 1
+        print(step)
     traci.close()
     sys.stdout.flush()
 
