@@ -115,6 +115,7 @@ def get_vehID(edgeID_list):
     return res
 
 
+"""
 def get_veh_position_type(vehID_list):
     tem = []
     vehicle = []
@@ -125,6 +126,7 @@ def get_veh_position_type(vehID_list):
         for j in i:
             traci.vehicle.subscribe(str(j), (tc.VAR_POSITION, tc.VAR_TYPE))
             for k in traci.vehicle.getSubscriptionResults(str(j)).values():
+                print(k)
                 # Only one loop, but transform tuple to the list
                 tem = list(k)
                 if len(tem) == 2:
@@ -146,6 +148,55 @@ def get_veh_position_type(vehID_list):
         res.append(vehicles_direction)
         vehicles_direction = []
     return res
+"""
+
+
+def get_veh_position_type(veh_id: list):
+    veh_position_type_edges = []
+    for i in veh_id:
+        veh_position_type_edge = []
+        for j in i:
+            vehicle = []
+            traci.vehicle.subscribe(j, (tc.VAR_POSITION, tc.VAR_TYPE))
+            for _ in traci.vehicle.getSubscriptionResults(j).values():
+                # just loop for twice
+                # eg.
+                # (240.63, 288.7583203267984)
+                # CAV_right
+                if len(_) == 2:
+                    # vehicle get the x y position
+                    vehicle.append(_[0])
+                    vehicle.append(_[1])
+                # we represent right through and left to 0 1 2 respectively
+                if len(_) == 9:
+                    vehicle.append(0)
+                if len(_) == 11:
+                    vehicle.append(1)
+                if len(_) == 8:
+                    vehicle.append(2)
+            veh_position_type_edge.append(vehicle)
+        veh_position_type_edges.append(veh_position_type_edge)
+    return veh_position_type_edges
+
+
+def get_absolute_demand(veh_position_type_edges: list):
+    # absolute_demand is a list of 1 * 8, in which
+    # the number of vehicles are stored in north to west and left to right respectively
+    absolute_demand = [0 for x in range(0, 8)]
+    # we use index to indicate the direction
+    index = 0
+    for i in veh_position_type_edges[0:4]:
+        print(i)
+        # now we enter the loop of each vehicle in the c section
+        for _ in i:
+            if _[2] == 2:
+                absolute_demand[2 * index] += 1
+            if _[2] == 1:
+                absolute_demand[2 * index + 1] += 1
+            else:
+                pass
+        index += 1
+    return absolute_demand
 
 
 def chessboard(vehicle_position_type):

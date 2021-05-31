@@ -27,6 +27,8 @@ import optparse
 import random
 import utils
 import para_dict
+import utils
+import demand_modeling
 
 # we need to import python modules from the $SUMO_HOME/tools directory
 if 'SUMO_HOME' in os.environ:
@@ -154,13 +156,24 @@ def run():
     traci.trafficlight.setPhase("SmartMetro", 2)
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()
-        vehID = utils.get_vehID(para_dict.edgeID_list)
-        print(vehID)
-        """
-           vehicle_position_type = utils.get_veh_position_type(vehID)
-        chess = utils.chessboard(vehicle_position_type)
-        print(chess)
-        """
+        demand = demand_modeling.Demand_Modeling(retrospective_length=50, edge_id=para_dict.edgeID_list, blame=0.7,
+                                                 u_section_anchor=para_dict.u_section_anchor)
+        veh_position_type = demand.get_veh_position_type()
+        ab_demand = demand.get_absolute_demand(veh_position_type)
+        # re_demand = demand.get_relative_demand(veh_position_type)
+        print(ab_demand)
+        # print(re_demand)
+
+
+
+
+
+        # vehID = utils.get_vehID(para_dict.edgeID_list)
+        # vehicle_position_type = utils.get_veh_position_type(vehID)
+        # ab_demand = utils.get_absolute_demand(vehicle_position_type)
+        # print(ab_demand)
+
+        # chess = utils.chessboard(vehicle_position_type)
 
         if traci.trafficlight.getPhase("SmartMetro") == 2:
             # we are not already switching
