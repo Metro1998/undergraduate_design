@@ -51,7 +51,6 @@ class Demand_Modeling(object):
         # the number of vehicles are stored in north to west and left to through respectively
         absolute_demand = [0 for x in range(0, 8)]
         veh_position_type = self.get_veh_position_type()
-        print(veh_position_type)
         # we use index to indicate the direction
         index = 0
         for i in veh_position_type[0:4]:
@@ -67,37 +66,57 @@ class Demand_Modeling(object):
         return absolute_demand
 
     def get_relative_demand(self):
+        border_for_blame = self.get_border_for_blame(retrospective_length=self.retrospective_length,
+                                                     u_section_anchor=self.u_section_anchor)
         # relative_demand is a list of 1 * 8, in which
         # the number of vehicles are stored in north to west and left to through respectively
         relative_demand = [0 for x in range(0, 8)]
 
         # -----border for blame-----
-        border_for_blame = self.get_border_for_blame(self.retrospective_length, self.u_section_anchor)
+        # border_for_blame = self.get_border_for_blame(self.retrospective_length, self.u_section_anchor)
 
         # ----blame space----
         space_for_blame = []
 
-        veh_position_type = self.get_veh_position_type()
         # we use index to indicate the direction
         index = 0
+        veh_position_type = self.get_veh_position_type()
         for i in veh_position_type[4:8]:
-            if index == 0 or index == 2:
-                i.reverse()
-            else:
-                pass
             space_for_blame_lane1 = []
             space_for_blame_lane2 = []
             # now we enter the loop of each vehicle in the u section
             for _ in i:
+
                 if border_for_blame[index * 2][0] < _[0] < border_for_blame[index * 2][1] and \
-                        border_for_blame[index * 2][2] < _[1] < border_for_blame[index][3]:
-                    space_for_blame_lane1.append(_[2])
+                        border_for_blame[index * 2][2] < _[1] < border_for_blame[index * 2][3]:
+                    space_for_blame_lane1.append(_)
                 elif border_for_blame[index * 2 + 1][0] < _[0] < border_for_blame[index * 2 + 1][1] and \
                         border_for_blame[index * 2 + 1][2] < _[1] < border_for_blame[index * 2 + 1][3]:
-                    space_for_blame_lane2.append(_[2])
-                space_for_blame.append(space_for_blame_lane1)
-                space_for_blame.append(space_for_blame_lane2)
+                    space_for_blame_lane2.append(_)
+            space_for_blame.append(space_for_blame_lane1)
+            space_for_blame.append(space_for_blame_lane2)
             index += 1
+        index = 0
+        for i in space_for_blame:
+            if index == 0 or index == 1 or index == 4 or index == 5:
+                self.rank(lt=i, index=1)
+            else:
+                self.rank(lt=i, index=0)
+            index += 1
+
+        index = 0
+        for i in space_for_blame:
+            if index == 0 or index == 1 or index == 2 or index == 3:
+                pass
+            else:
+                i.reverse()
+            index += 1
+        space_for_blame_ = []
+        for i in space_for_blame:
+            space_for_blame_lane_ = []
+            for _ in i:
+                space_for_blame_lane_.append(_[2])
+            space_for_blame_.append(space_for_blame_lane_)
 
         # -----get relative demand-----
         # introduction to "blame"
@@ -109,33 +128,48 @@ class Demand_Modeling(object):
         #     [1, 1, 1, 1, 1, 1, 1]-->[1, 1, 1, 1, 2, 0.5, 0.5]
         # --> [1, 1, 1.75, 1.75, 1, 0.25, 0.25]-->[3.5, 0.875, 0.875, 0.5, 0.125, 0.125]
 
-        # we use lane_index to indicate which lane's demand is countering
-        lane_index = 0
-        for _ in space_for_blame:
-            _.reverse()
-            index = []
-            for i in range(len(_) - 1):
-                if _[i] != _[i + 1]:
-                    index.append(i)
-            index.append(i + 1)
-            demand_for_lane = list(1 for x in range(len(_)))
-            for j in range(len(index) - 1):
-                for m in range(index[j] + 1):
-                    demand_for_lane[m] *= (1 - self.blame)
-                for m in range(index[j] + 1, index[j + 1] + 1):
-                    demand_for_lane[m] += self.blame * (index[j] + 1) / (index[j + 1] - index[j])
+        conut_left = []
+        count_through = []
+        for _ in space_for_blame_:
+            if len(_) == 0:
+                conut_left.append(0)
+                count_through.append(0)
+                pass
+            else:
+                conut_left_for_lane = 0
+                count_through_for_lane = 0
+                _.reverse()
+                index = []
+                if len(_) == 1:
+                    index.append(1)
+                else:
+                    for i in range(len(_) - 1):
+                        if _[i] != _[i + 1]:
+                            index.append(i)
+                    index.append(i + 1)
+                demand_for_lane = list(1 for x in range(len(_)))
+                for j in range(len(index) - 1):
+                    for m in range(index[j] + 1):
+                        demand_for_lane[m] *= (1 - self.blame)
+                    for m in range(index[j] + 1, index[j + 1] + 1):
+                        demand_for_lane[m] += self.blame * (index[j] + 1) / (index[j + 1] - index[j])
+                demand_for_lane.reverse()
+                _.reverse()
+                for x in _:
+                    ix = 0
+                    if x == 2:
+                        conut_left_for_lane += demand_for_lane[ix]
+                    elif x == 1:
+                        count_through_for_lane += demand_for_lane[ix]
+                    ix += 1
+                conut_left.append(conut_left_for_lane)
+                count_through.append(count_through_for_lane)
 
-            demand_for_lane.reverse()
-            _.reverse()
-            count = 0
-
-            for k in _:
-                if k == 2:
-                    relative_demand[lane_index * 2] += demand_for_lane[count]
-                if k == 1:
-                    relative_demand[lane_index * 2 + 1] += demand_for_lane[count]
-                count += 1
-            lane_index += 1
+        for i in range(8):
+            if i % 2 == 0:
+                relative_demand[i] = conut_left[i] + conut_left[i + 1]
+            else:
+                relative_demand[i] = count_through[i - 1] + count_through[i]
         return relative_demand
 
     def get_border_for_blame(self, retrospective_length: float, u_section_anchor: list):
@@ -161,3 +195,13 @@ class Demand_Modeling(object):
                   u_section_anchor[3][1] + 3.75, u_section_anchor[3][1] + 7.5]
         border_for_blame = [north_1, north_2, east_1, east_2, south_1, south_2, west_1, west_2]
         return border_for_blame
+
+    def rank(self, lt: list, index: int):
+        n = len(lt)
+        for i in range(n - 1):
+            for j in range(n - 1 - i):
+                if lt[j][index] > lt[j + 1][index]:
+                    lt[j], lt[j + 1] = lt[j + 1], lt[j]
+        return lt
+
+

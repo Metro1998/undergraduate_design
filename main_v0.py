@@ -50,8 +50,9 @@ for i_episode in itertools.count(1):
     # step = 1
     episode_reward = 0
     episode_steps = 0
-    done = False
-    state = env.reset() #TODO
+    # we don't design done
+    # done = False
+    observation = [0 for x in range(0, 8)]
 
     # Start an instance of env
     sumoBinary = "D:/sumo/bin/sumo-gui"

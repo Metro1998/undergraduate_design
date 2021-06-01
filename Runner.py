@@ -158,8 +158,9 @@ def run():
                                                  u_section_anchor=para_dict.u_section_anchor)
         ab_demand = demand.get_absolute_demand()
         print(ab_demand)
-        # re_demand = demand.get_relative_demand()
-        # print(re_demand)
+        re_demand = demand.get_relative_demand()
+        print(re_demand)
+
 
 
 
@@ -173,7 +174,6 @@ def run():
         # chess = utils.chessboard(vehicle_position_type)
 
         step += 1
-        print(step)
     traci.close()
     sys.stdout.flush()
 

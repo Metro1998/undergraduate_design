@@ -28,6 +28,20 @@ demand_for_lane.reverse()
 print(demand_for_lane)
 """
 
+def rank(lt: list, index: int):
+    n = len(lt)
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if lt[j][index] > lt[j + 1][index]:
+                lt[j], lt[j + 1] = lt[j + 1], lt[j]
+    return lt
+
+
+lt = [[3], [5], [2], [1], [8], [4]]
+a = rank(lt=lt, index=0)
+a.reverse()
+print(a)
+blame = 0.5
 
 def get_border_for_blame(retrospective_length: float, u_section_anchor: list):
     # u_section_anchor is a list [[,],[,],[,],[,]] storing the anchor position of the u_section
@@ -55,7 +69,6 @@ def get_border_for_blame(retrospective_length: float, u_section_anchor: list):
 
 
 border_for_blame = get_border_for_blame(retrospective_length=196, u_section_anchor=para_dict.u_section_anchor)
-print(border_for_blame)
 
 veh_position_type = [[[240.63, 288.75919178607387, 0], [240.63, 281.25899661880476, 0], [240.63, 273.7588918503564, 0],
                       [240.63, 266.2587286493064, 0], [244.38, 273.7592210456443, 1], [244.38, 266.2590397474642, 1],
@@ -96,22 +109,91 @@ space_for_blame = []
 # we use index to indicate the direction
 index = 0
 for i in veh_position_type[4:8]:
-    if index == 0 or index == 1:
-        i.reverse()
-    else:
-        pass
     space_for_blame_lane1 = []
     space_for_blame_lane2 = []
     # now we enter the loop of each vehicle in the u section
     for _ in i:
-        print(_)
+
         if border_for_blame[index * 2][0] < _[0] < border_for_blame[index * 2][1] and \
                 border_for_blame[index * 2][2] < _[1] < border_for_blame[index * 2][3]:
-            space_for_blame_lane1.append(_[2])
+            space_for_blame_lane1.append(_)
         elif border_for_blame[index * 2 + 1][0] < _[0] < border_for_blame[index * 2 + 1][1] and \
                 border_for_blame[index * 2 + 1][2] < _[1] < border_for_blame[index * 2 + 1][3]:
-            space_for_blame_lane2.append(_[2])
+            space_for_blame_lane2.append(_)
     space_for_blame.append(space_for_blame_lane1)
     space_for_blame.append(space_for_blame_lane2)
-    print(space_for_blame)
     index += 1
+index = 0
+for i in space_for_blame:
+    if index == 0 or index == 1 or index == 4 or index == 5:
+        rank(lt=i, index=1)
+    else:
+        rank(lt=i, index=0)
+    index += 1
+
+index = 0
+for i in space_for_blame:
+    if index == 0 or index == 1 or index == 2 or index == 3:
+        pass
+    else:
+        i.reverse()
+    index += 1
+
+
+space_for_blame_ = []
+for i in space_for_blame:
+    space_for_blame_lane_ = []
+    for _ in i:
+        space_for_blame_lane_.append(_[2])
+    space_for_blame_.append(space_for_blame_lane_)
+print(space_for_blame_)
+
+lane_index = 0
+conut_left = []
+count_through = []
+for _ in space_for_blame_:
+    conut_left_for_lane = 0
+    count_through_for_lane = 0
+    _.reverse()
+    index = []
+    for i in range(len(_) - 1):
+        if _[i] != _[i + 1]:
+            index.append(i)
+    index.append(i + 1)
+    demand_for_lane = list(1 for x in range(len(_)))
+    for j in range(len(index) - 1):
+        for m in range(index[j] + 1):
+            demand_for_lane[m] *= (1 - blame)
+        for m in range(index[j] + 1, index[j + 1] + 1):
+            demand_for_lane[m] += blame * (index[j] + 1) / (index[j + 1] - index[j])
+    demand_for_lane.reverse()
+    _.reverse()
+    for x in _:
+        ix = 0
+        if x == 2:
+            conut_left_for_lane += demand_for_lane[ix]
+        elif x == 1:
+            count_through_for_lane += demand_for_lane[ix]
+        ix += 1
+    conut_left.append(conut_left_for_lane)
+    count_through.append(count_through_for_lane)
+print(count_through)
+print(conut_left)
+for i in range(8):
+    if i % 2 == 0:
+       relative_demand[i] = conut_left[i] + conut_left[i + 1]
+    else:
+        relative_demand[i] = count_through[i -1] + count_through[i]
+print(relative_demand)
+
+
+
+
+
+
+
+
+
+
+
+
