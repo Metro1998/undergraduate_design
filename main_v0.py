@@ -5,10 +5,13 @@ import itertools
 import traci
 import argparse
 import numpy as np
+import datetime
 import torch
 from sac import SAC
 from torch.utils.tensorboard import SummaryWriter
 from replay_memory import ReplayMemory
+from demand_modeling import Demand_Modeling
+
 
 parser = argparse.ArgumentParser(description='PyTorch Soft Actor-Critic Args')
 parser.add_argument('--env-name', default="HalfCheetah-v2",
@@ -62,6 +65,8 @@ maximum_steps = 1000000
 maximum_episode_steps = 3600
 # agent will act randomly at first
 start_steps = 50
+batch_size = 256
+updates_per_step = 1
 
 # Training Loop
 total_steps = 0
@@ -77,19 +82,27 @@ for i_episode in itertools.count(1):
     traci.start(sumoCmd)
 
     while not done:
+        # state definition
+        demand = Demand_Modeling()
+        absolute_demand = demand.get_absolute_demand()
+        relative_demand = demand.get_relative_demand()
+        total_demand = list(map(lambda x: x[0]+x[1], zip(absolute_demand, relative_demand)))
+        # TODO
+        # instance?
+
+        # select action
         if start_steps > total_steps:
             action = np.random.randint(1, 8)  # Sample random action
-            # TODO
         else:
-            action = agent.select_action(state)  # Sample action from policy
+            action = int(agent.select_action(total_demand) // + 1)  # Sample action from policy
 
-        if len(memory) > args.batch_size:
+        if len(memory) > batch_size:
             # Number of updates per step in environment
-            for i in range(args.updates_per_step):
+            for i in range(updates_per_step):
                 # Update parameters of all the networks
                 # default 1
                 critic_1_loss, critic_2_loss, policy_loss, ent_loss, alpha = agent.update_parameters(memory,
-                                                                                                     args.batch_size,
+                                                                                                     batch_size,
                                                                                                      updates)
                 # updates is just a counting parameter
 
@@ -97,7 +110,7 @@ for i_episode in itertools.count(1):
                 writer.add_scalar('loss/critic_2', critic_2_loss, updates)
                 writer.add_scalar('loss/policy', policy_loss, updates)
                 writer.add_scalar('loss/entropy_loss', ent_loss, updates)
-                writer.add_scalar('entropy_temprature/alpha', alpha, updates)
+                writer.add_scalar('entropy_temperature/alpha', alpha, updates)
                 updates += 1
         # next_state definition
 
