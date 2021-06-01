@@ -4,51 +4,43 @@ import torch.nn.functional as F
 from torch.optim import Adam
 from utils import soft_update, hard_update
 from model import GaussianPolicy, QNetwork
+import numpy as np
 
 
 class SAC(object):
-    def __init__(self, num_inputs, action_space, args):
+    def __init__(self):
 
-        self.gamma = args.gamma
-        self.tau = args.tau
-        self.alpha = args.alpha
+        self.gamma = 0.99
+        self.tau = 0.005
+        self.alpha = 0.2
+        self.lr = 0.003
 
-        self.policy_type = args.policy
-        self.target_update_interval = args.target_update_interval
-        self.automatic_entropy_tuning = args.automatic_entropy_tuning
+        self.target_update_interval = 1
+        self.device = torch.device("cpu")
 
-        self.device = torch.device("cuda" if args.cuda else "cpu")
+        # 8 phases
+        self.num_inputs = 8
+        self.num_actions = 1
+        self.hidden_size = 256
 
-        self.critic = QNetwork(num_inputs, action_space.shape[0], args.hidden_size).to(self.device)
-        # .shape[0] height  .shape[1] length  .shape[2] channels
-        self.critic_optim = Adam(self.critic.parameters(), lr=args.lr)
+        self.critic = QNetwork(self.num_inputs, self.num_actions, self.hidden_size).to(self.device)
+        self.critic_optimizer = Adam(self.critic.parameters(), lr=self.lr)
 
-        self.critic_target = QNetwork(num_inputs, action_space.shape[0], args.hidden_size).to(self.device)
+        self.critic_target = QNetwork(self.num_inputs, self.num_actions, self.hidden_size).to(self.device)
         hard_update(self.critic_target, self.critic)
         # Copy the parameters of critic to critic_target
 
-        if self.policy_type == "Gaussian": # TODO
-            if self.automatic_entropy_tuning is True:
-                self.target_entropy = -torch.prod(torch.Tensor(action_space.shape).to(self.device)).item()
-                self.log_alpha = torch.zeros(1, requires_grad=True, device=self.device)
-                self.alpha_optim = Adam([self.log_alpha], lr=args.lr)
+        self.target_entropy = -torch.Tensor(1.0).to(self.device).item()
+        self.log_alpha = torch.zeros(1, requires_grad=True, device=self.device)
+        self.alpha_optimizer = Adam([self.log_alpha], lr=self.lr)
 
-            self.policy = GaussianPolicy(num_inputs, action_space.shape[0], args.hidden_size, action_space).to(self.device)
-            self.policy_optim = Adam(self.policy.parameters(), lr=args.lr)
+        self.policy = GaussianPolicy(self.num_inputs, self.num_actions, self.hidden_size).to(
+            self.device)
+        self.policy_optimizer = Adam(self.policy.parameters(), lr=self.lr)
 
-        else:
-            self.alpha = 0
-            self.automatic_entropy_tuning = False
-            self.policy = DeterministicPolicy(num_inputs, action_space.shape[0], args.hidden_size, action_space).to(
-                self.device)
-            self.policy_optim = Adam(self.policy.parameters(), lr=args.lr)
-
-    def select_action(self, state, evaluate=False):
+    def select_action(self, state):
         state = torch.FloatTensor(state).to(self.device).unsqueenze(0)
-        if evaluate is False:
-            action, _, _ = self.policy.sample(state)
-        else:
-            _, _, action = self.policy.sample(state)
+        _, _, action = self.policy.sample(state)
         return action.detach().cpu().numpy()[0]
         # action is a CUDA tensor, you should do .detach().cpu().numpy(), when
         # you need a numpy
@@ -75,11 +67,11 @@ class SAC(object):
         qf2_loss = F.mse_loss(qf2, next_q_value)  # JQ = 𝔼(st,at)~D[0.5(Q1(st,at) - r(st,at) - γ(𝔼st+1~p[V(st+1)]))^2]
         qf_loss = qf1_loss + qf2_loss
 
-        self.critic_optim.zero_grad()
+        self.critic_optimizer.zero_grad()
         # Clear the cumulative grad
         qf_loss.backward()
         # Get grad via backward()
-        self.critic_optim.step()
+        self.critic_optimizer.step()
         # Update the para via grad
 
         pi, log_pi, _ = self.policy.sample(state_batch)
@@ -90,22 +82,19 @@ class SAC(object):
         policy_loss = ((self.alpha * log_pi) - min_qf_pi).mean()
         # Jπ = 𝔼st∼D,εt∼N[α * logπ(f(εt;st)|st) − Q(st,f(εt;st))]
 
-        self.policy_optim.zero_grad()
+        self.policy_optimizer.zero_grad()
         policy_loss.backward()
-        self.policy_optim.step()
+        self.policy_optimizer.step()
 
-        if self.automatic_entropy_tuning:
-            alpha_loss = -(self.log_alpha * (log_pi + self.target_entropy).detach()).mean() # TODO
+        # automatic_entropy_tuning:
+        alpha_loss = -(self.log_alpha * (log_pi + self.target_entropy).detach()).mean()  # TODO
 
-            self.alpha_optim.zero_grad()
-            alpha_loss.backward()
-            self.alpha_optim.step()
+        self.alpha_optimizer.zero_grad()
+        alpha_loss.backward()
+        self.alpha_optimizer.step()
 
-            self.alpha = self.log_alpha.exp()
-            alpha_tlogs = self.alpha.clone()  # For TensorboardX logs
-        else:
-            alpha_loss = torch.tensor(0.).to(self.device)
-            alpha_tlogs = torch.tensor(self.alpha)  # For TensorboardX logs
+        self.alpha = self.log_alpha.exp()
+        alpha_tlogs = self.alpha.clone()  # For TensorboardX logs
 
         if updates % self.target_update_interval == 0:
             soft_update(self.critic_target, self.critic, self.tau)

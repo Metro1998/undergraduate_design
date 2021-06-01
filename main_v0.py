@@ -4,6 +4,11 @@
 import itertools
 import traci
 import argparse
+import numpy as np
+import torch
+from sac import SAC
+from torch.utils.tensorboard import SummaryWriter
+from replay_memory import ReplayMemory
 
 parser = argparse.ArgumentParser(description='PyTorch Soft Actor-Critic Args')
 parser.add_argument('--env-name', default="HalfCheetah-v2",
@@ -43,16 +48,28 @@ parser.add_argument('--cuda', action="store_true",
                     help='run on CUDA (default: False)')
 args = parser.parse_args()
 
+# Agent
+agent = SAC()
+
+# Tensor_board
+writer = SummaryWriter('runs/{}_SAC'.format(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")))
+
+# Memory
+memory = ReplayMemory()
+
+# Parameters
+maximum_steps = 1000000
+maximum_episode_steps = 3600
+# agent will act randomly at first
+start_steps = 50
+
 # Training Loop
-total_numsteps = 0
+total_steps = 0
 updates = 0
 for i_episode in itertools.count(1):
-    # step = 1
     episode_reward = 0
     episode_steps = 0
-    # we don't design done
-    # done = False
-    observation = [0 for x in range(0, 8)]
+    done = False
 
     # Start an instance of env
     sumoBinary = "D:/sumo/bin/sumo-gui"
@@ -60,8 +77,8 @@ for i_episode in itertools.count(1):
     traci.start(sumoCmd)
 
     while not done:
-        if args.start_steps > total_numsteps:
-            action = env.action_space.sample()  # Sample random action
+        if start_steps > total_steps:
+            action = np.random.randint(1, 8)  # Sample random action
             # TODO
         else:
             action = agent.select_action(state)  # Sample action from policy
@@ -71,7 +88,9 @@ for i_episode in itertools.count(1):
             for i in range(args.updates_per_step):
                 # Update parameters of all the networks
                 # default 1
-                critic_1_loss, critic_2_loss, policy_loss, ent_loss, alpha = agent.update_parameters(memory, args.batch_size, updates)
+                critic_1_loss, critic_2_loss, policy_loss, ent_loss, alpha = agent.update_parameters(memory,
+                                                                                                     args.batch_size,
+                                                                                                     updates)
                 # updates is just a counting parameter
 
                 writer.add_scalar('loss/critic_1', critic_1_loss, updates)
@@ -86,25 +105,26 @@ for i_episode in itertools.count(1):
 
         # done definition
         # simulation breaks when the time comes to 3600s
-        if episode_steps >= 3600:
+        if episode_steps >= maximum_episode_steps:
             done = True
 
-
-        next_state, reward, done, _ = env.step(action) # Step
+        next_state, reward, _, __ = env.step(action)  # TODO
         episode_steps += 1
-        total_numsteps += 1
+        total_steps += 1
         episode_reward += reward
 
         # Ignore the "done" signal if it comes from hitting the time horizon.
         # (https://github.com/openai/spinningup/blob/master/spinup/algos/sac/sac.py)
-        mask = 1 if episode_steps == env._max_episode_steps else float(not done)
+        mask = 1 if episode_steps == maximum_episode_steps else float(not done)
 
-        memory.push(state, action, reward, next_state, mask) # Append transition to memory
+        memory.push(state, action, reward, next_state, mask)  # Append transition to memory
 
         state = next_state
 
-    if total_numsteps > args.num_steps:
+    if total_steps > maximum_steps:
         break
 
     writer.add_scalar('reward/train', episode_reward, i_episode)
-    print("Episode: {}, total numsteps: {}, episode steps: {}, reward: {}".format(i_episode, total_numsteps, episode_steps, round(episode_reward, 2)))
+    print("Episode: {}, total numsteps: {}, episode steps: {}, reward: {}".format(i_episode, total_numsteps,
+                                                                                  episode_steps,
+                                                                                  round(episode_reward, 2)))

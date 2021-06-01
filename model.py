@@ -7,6 +7,7 @@ LOG_SIG_MAX = 2
 LOG_SIG_MIN = -20
 epsilon = 1e-6
 
+
 # Initialize Policy weights
 def weights_init_(m):
     if isinstance(m, nn.Linear):
@@ -14,7 +15,7 @@ def weights_init_(m):
         torch.nn.init.constant_(m.bias, 0)
 
 
-class ValueNetwork(nn.Module)
+class ValueNetwork(nn.Module):
     def __init__(self, num_inputs, hidden_dim):
         super(ValueNetwork, self).__init__()
 
@@ -62,7 +63,7 @@ class QNetwork(nn.Module):
 
 
 class GaussianPolicy(nn.Module):
-    def __init__(self, num_inputs, num_actions, hidden_dim, action_space=None):
+    def __init__(self, num_inputs, num_actions, hidden_dim):
         super(GaussianPolicy, self).__init__()
 
         self.linear1 = nn.Linear(num_inputs, hidden_dim)
@@ -73,18 +74,8 @@ class GaussianPolicy(nn.Module):
 
         self.apply(weights_init_)
 
-
-           # action rescaling
-        if action_space is None:
-            self.action_scale = torch.tensor(1.)
-            self.action_bias = torch.tensor(0.)
-        else:
-            self.action_scale = torch.tensor(
-                (action_space.high-action_space.low) / 2.)
-            self.action_bias = torch.tensor(
-                (action_space.high-action_space.low) / 2.)
-
-
+        self.action_scale = 4
+        self.action_bias = 4
 
     def forward(self, state):
         x = F.relu(self.linear1(state))
@@ -94,7 +85,6 @@ class GaussianPolicy(nn.Module):
         log_std = torch.clamp(log_std, min=LOG_SIG_MIN, max=LOG_SIG_MAX)
         # Constrict every element in log_std in to [LOG_SIG_MIN, LOG_SIG_MAX]
         return mean, log_std
-
 
     def sample(self, state):
         mean, log_std = self.forward(state)
@@ -111,6 +101,6 @@ class GaussianPolicy(nn.Module):
         # log_prob(value)是计算value在定义的正态分布中对应的概率的对数
         # Enforcing Action Bound
         log_prob -= torch.log(self.action_scale * (1 - y_t.pow(2) + epsilon))
-        log_prob = log_prob.sum(1, keepdim=True) # TODO
+        log_prob = log_prob.sum(1, keepdim=True)
         mean = torch.tanh(mean) * self.action_scale + self.action_bias
         return action, log_prob, mean

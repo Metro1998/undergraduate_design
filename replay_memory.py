@@ -1,10 +1,11 @@
 import random
 import numpy as np
 
+
 class ReplayMemory:
-    def __init__(self, capacity, seed):
-        random.seed(seed)
-        self.capacity = capacity
+    def __init__(self):
+        random.seed(123)
+        self.capacity = 100000
         self.buffer = []
         self.position = 0
 

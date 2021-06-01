@@ -44,7 +44,7 @@ import traci.constants as tc
 
 
 def generate_routefile():
-    random.seed(32)  # make tests reproducible
+    random.seed(123)  # make tests reproducible
     N = 3600  # number of time steps
     # demand per second from different directions
     pEN = 1./ 10
