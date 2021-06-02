@@ -1,10 +1,31 @@
 <additional>
-  <edgeData file="Output_Data/east_u.xml" freq="30" id="east_u"/>
-  <edgeData file="Output_Data/south_u.xml" freq="30" id="south_u"/>
-  <edgeData file="Output_Data/north_u.xml" freq="30" id="north_u"/>
-  <edgeData file="Output_Data/west_u.xml" freq="30" id="west_u"/>
-  <timedEvent dest="Output_Data/output_signalstates.xml" source="SmartMetro" type="SaveTLSStates"/>
-  <timedEvent dest="Output_Data/output_signalstatesswitch.xml" source="SmartMetro" type="SaveTLSSwitchTimes"/>
-  <timedEvent dest="Output_Data/output_signalstatesswitchstates.xml" source="SmartMetro" type="SaveTLSSwitchStates"/>
-  <e1Detector id="D_1" lane="west_c_0" pos="50" freq="30" file="cross.out" friendlyPos="x"/>
+  <tlLogic id="SmartMetro" type="static" programID="SmartMetro_V0" offset="0">
+        # north_south_through
+        <phase duration="10" state="GGGGrrGGrrrrGGGGrrGGrrrr"/>
+        <phase duration="3"  state="GGyyrrGGrrrrGGyyrrGGrrrr"/>
+        # east_west_through
+        <phase duration="10" state="GGrrrrGGGGrrGGrrrrGGGGrr"/>
+        <phase duration="3"  state="GGrrrrGGyyrrGGrrrrGGyyrr"/>
+        # north_south_left
+        <phase duration="10" state="GGrrGGGGrrrrGGrrGGGGrrrr"/>
+        <phase duration="3"  state="GGrryyGGrrrrGGrryyGGrrrr"/>
+        # east_west_left
+        <phase duration="10" state="GGrrrrGGrrGGGGrrrrGGrrGG"/>
+        <phase duration="3"  state="GGrrrrGGrryyGGrrrrGGrryy"/>
+        # north_through_left
+        <phase duration="10" state="GGGGGGGGrrrrGGrrrrGGrrrr"/>
+        <phase duration="3"  state="GGyyyyGGrrrrGGrrrrGGrrrr"/>
+        # east_through_left
+        <phase duration="10" state="GGrrrrGGGGGGGGrrrrGGrrrr"/>
+        <phase duration="3"  state="GGrrrrGGyyyyGGrrrrGGrrrr"/>
+        # south_through_left
+        <phase duration="10" state="GGrrrrGGrrrrGGGGGGGGrrrr"/>
+        <phase duration="3"  state="GGrrrrGGrrrrGGyyyyGGrrrr"/>
+        # west_through_left
+        <phase duration="10" state="GGrrrrGGrrrrGGrrrrGGGGGG"/>
+        <phase duration="3"  state="GGrrrrGGrrrrGGrrrrGGyyyy"/>
+        # all red
+        <phase duration="3"  state="rrrrrrrrrrrrrrrrrrrrrrrr"/>
+
+  </tlLogic>
 </additional>

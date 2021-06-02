@@ -30,7 +30,7 @@ class SAC(object):
         hard_update(self.critic_target, self.critic)
         # Copy the parameters of critic to critic_target
 
-        self.target_entropy = -torch.Tensor(1.0).to(self.device).item()
+        self.target_entropy = -torch.Tensor([1.0]).to(self.device).item()
         self.log_alpha = torch.zeros(1, requires_grad=True, device=self.device)
         self.alpha_optimizer = Adam([self.log_alpha], lr=self.lr)
 
@@ -39,7 +39,7 @@ class SAC(object):
         self.policy_optimizer = Adam(self.policy.parameters(), lr=self.lr)
 
     def select_action(self, state):
-        state = torch.FloatTensor(state).to(self.device).unsqueenze(0)
+        state = torch.FloatTensor(state).to(self.device)  # TODO
         _, _, action = self.policy.sample(state)
         return action.detach().cpu().numpy()[0]
         # action is a CUDA tensor, you should do .detach().cpu().numpy(), when
@@ -48,6 +48,7 @@ class SAC(object):
     def update_parameters(self, memory, batch_size, updates):
         # Sample a batch from memory
         state_batch, action_batch, reward_batch, next_state_batch, mask_batch = memory.sample(batch_size=batch_size)
+        action_batch = np.expand_dims(action_batch, axis=1)
 
         state_batch = torch.FloatTensor(state_batch).to(self.device)
         next_state_batch = torch.FloatTensor(next_state_batch).to(self.device)

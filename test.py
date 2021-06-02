@@ -28,6 +28,7 @@ demand_for_lane.reverse()
 print(demand_for_lane)
 """
 
+
 def rank(lt: list, index: int):
     n = len(lt)
     for i in range(n - 1):
@@ -40,8 +41,8 @@ def rank(lt: list, index: int):
 lt = [[3], [5], [2], [1], [8], [4]]
 a = rank(lt=lt, index=0)
 a.reverse()
-print(a)
 blame = 0.5
+
 
 def get_border_for_blame(retrospective_length: float, u_section_anchor: list):
     # u_section_anchor is a list [[,],[,],[,],[,]] storing the anchor position of the u_section
@@ -139,7 +140,6 @@ for i in space_for_blame:
         i.reverse()
     index += 1
 
-
 space_for_blame_ = []
 for i in space_for_blame:
     space_for_blame_lane_ = []
@@ -167,9 +167,11 @@ for _ in space_for_blame_:
         for m in range(index[j] + 1, index[j + 1] + 1):
             demand_for_lane[m] += blame * (index[j] + 1) / (index[j + 1] - index[j])
     demand_for_lane.reverse()
+    print(demand_for_lane)
     _.reverse()
+
+    ix = 0
     for x in _:
-        ix = 0
         if x == 2:
             conut_left_for_lane += demand_for_lane[ix]
         elif x == 1:
@@ -177,23 +179,11 @@ for _ in space_for_blame_:
         ix += 1
     conut_left.append(conut_left_for_lane)
     count_through.append(count_through_for_lane)
-print(count_through)
-print(conut_left)
+    print(conut_left_for_lane)
+    print(" ")
 for i in range(8):
     if i % 2 == 0:
-       relative_demand[i] = conut_left[i] + conut_left[i + 1]
+        relative_demand[i] = conut_left[i] + conut_left[i + 1]
     else:
-        relative_demand[i] = count_through[i -1] + count_through[i]
+        relative_demand[i] = count_through[i - 1] + count_through[i]
 print(relative_demand)
-
-
-
-
-
-
-
-
-
-
-
-

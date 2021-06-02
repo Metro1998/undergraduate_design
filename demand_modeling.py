@@ -155,8 +155,10 @@ class Demand_Modeling(object):
                         demand_for_lane[m] += self.blame * (index[j] + 1) / (index[j + 1] - index[j])
                 demand_for_lane.reverse()
                 _.reverse()
+
+                ix = 0
                 for x in _:
-                    ix = 0
+
                     if x == 2:
                         conut_left_for_lane += demand_for_lane[ix]
                     elif x == 1:
