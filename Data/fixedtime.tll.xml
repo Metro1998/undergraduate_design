@@ -1,0 +1,15 @@
+<tlLogic id="SmartMetro" type="static" programID="SmartMetro_V0" offset="0">
+        <phase duration="37" state="GGrrrrGGGGrrGGrrrrGGGGrr"/>
+        <phase duration="1"  state="GGrrrrGGyyrrGGrrrrGGyyrr"/>
+        <phase duration="2"  state="GGrrrrGGyyGGGGrrrrGGyyGG"/>
+        <phase duration="16" state="GGrrrrGGrrGGGGrrrrGGrrGG"/>
+        <phase duration="3"  state="GGrrrrGGrryyGGrrrrGGrryy"/>
+        <phase duration="3"  state="rrrrrrrrrrrrrrrrrrrrrrrr"/>
+        <phase duration="37" state="GGGGrrGGrrrrGGGGrrGGrrrr"/>
+        <phase duration="3"  state="GGyyrrGGrrrrGGyyrrGGrrrr"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrrrrrr"/>
+        <phase duration="17" state="GGrrGGGGrrrrGGrrGGGGrrrr"/>
+        <phase duration="3"  state="GGrryyGGrrrrGGrryyGGrrrr"/>
+        <phase duration="1"  state="rrrrrrrrrrrrrrrrrrrrrrrr"/>
+
+</tlLogic>

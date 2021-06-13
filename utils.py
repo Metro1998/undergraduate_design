@@ -8,6 +8,7 @@ import numpy as np
 import math
 import torch
 import random
+import matplotlib.pyplot as plt
 
 
 # env relative
@@ -15,18 +16,18 @@ def generate_routefile():
     random.seed(123)  # make tests reproducible
     N = 3600  # number of time steps
     # demand per second from different directions
-    pEN = 1. / 34
-    pEW = 1. / 23
+    pEN = 1. / 17
+    pEW = 1. / 19
     pES = 1. / 15
     pNW = 1. / 13
     pNS = 1. / 10
     pNE = 1. / 15
-    pWS = 1. / 21
-    pWE = 1. / 19
+    pWS = 1. / 12
+    pWE = 1. / 15
     pWN = 1. / 15
-    pSE = 1. / 21
-    pSN = 1. / 29
-    pSW = 1. / 30
+    pSE = 1. / 18
+    pSN = 1. / 17
+    pSW = 1. / 12
 
     with open("Data/Metro_Intersection.rou.xml", "w") as routes:
         print("""<routes>
@@ -133,3 +134,54 @@ def soft_update(target, source, tau):
 def hard_update(target, source):
     for target_param, param in zip(target.parameters(), source.parameters()):
         target_param.data.copy_(param.data)
+
+
+def plot1(queue_length):
+    ax1 = plt.subplot(111)
+    ax1.cla()
+    ax1.grid()
+    ax1.set_title('Evaluation_Avg_Queue_Length_blame=0')
+    ax1.set_xlabel('Episode')
+    ax1.set_ylabel('Avg_Queue_Length')
+    ax1.plot(queue_length)
+    Runtime = len(queue_length)
+
+    # save
+    path = 'pic+0/pic' + 'Evaluation_queue_length' + str(Runtime) + '.jpg'
+    if Runtime % 1 == 0:
+        plt.savefig(path)
+    plt.pause(0.0000001)
+
+
+def plot2(waiting_time):
+    ax1 = plt.subplot(111)
+    ax1.cla()
+    ax1.grid()
+    ax1.set_title('Evaluation_Avg_Accumulated_Waiting_Time_blame=0')
+    ax1.set_xlabel('Episode')
+    ax1.set_ylabel('Avg_Accumulated_Waiting_Time')
+    ax1.plot(waiting_time)
+    Runtime = len(waiting_time)
+
+    # save
+    path = 'pic+0/pic' + 'Evaluation_waiting_time' + str(Runtime) + '.jpg'
+    if Runtime % 1 == 0:
+        plt.savefig(path)
+    plt.pause(0.0000001)
+
+
+def plot3(alpha):
+    ax1 = plt.subplot(111)
+    ax1.cla()
+    ax1.grid()
+    ax1.set_title('Alpha_blame=0')
+    ax1.set_xlabel('Episode')
+    ax1.set_ylabel('Alpha')
+    ax1.plot(alpha)
+    Runtime = len(alpha)
+
+    # save
+    path = 'pic+0/pic' + 'Alpha' + str(Runtime) + '.jpg'
+    if Runtime % 1 == 0:
+        plt.savefig(path)
+    plt.pause(0.0000001)
