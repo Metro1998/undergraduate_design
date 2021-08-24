@@ -1,9 +1,8 @@
 import os
 import torch
 import torch.nn.functional as F
-import math
 from torch.optim import Adam
-from utils import soft_update, hard_update
+from utilities.utilities import soft_update, hard_update
 from model import GaussianPolicy, QNetwork
 import numpy as np
 

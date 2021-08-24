@@ -1,10 +1,7 @@
 # @author  Wolfie
 # @date    2021-05-03
 
-import traci
-import traci.constants as tc
-import para_dict
-import numpy as np
+import os
 import math
 import torch
 import random
@@ -29,7 +26,7 @@ def generate_routefile():
     pSN = 1. / 17
     pSW = 1. / 12
 
-    with open("Data/Metro_Intersection.rou.xml", "w") as routes:
+    with open("../road_network_doc/Metro_Intersection.rou.xml", "w") as routes:
         print("""<routes>
         <vType vClass="private" sigma="0.5" lcStrategic="1.0" jmIgnoreKeepClearTime="0"\
         id="CAV_left" decel="4.5" color="0,255,0" carFollowModel="IDM" accel="3.0" xmlns:maxSpeed="40.0" xmlns:length="5"/>
@@ -147,9 +144,12 @@ def plot1(queue_length):
     Runtime = len(queue_length)
 
     # save
-    path = 'pic+0/pic' + 'Evaluation_queue_length' + str(Runtime) + '.jpg'
+    path = os.getcwd()
+    file_path_for_pic = path + '\\pic\\Avg_Queue_Length\\'
+    if not os.path.exists(file_path_for_pic):
+        os.makedirs(file_path_for_pic)
     if Runtime % 1 == 0:
-        plt.savefig(path)
+        plt.savefig(file_path_for_pic +  str(Runtime) + '.jpg')
     plt.pause(0.0000001)
 
 
@@ -163,10 +163,12 @@ def plot2(waiting_time):
     ax1.plot(waiting_time)
     Runtime = len(waiting_time)
 
-    # save
-    path = 'pic+0/pic' + 'Evaluation_waiting_time' + str(Runtime) + '.jpg'
+    path = os.getcwd()
+    file_path_for_pic = path + '\\pic\\Avg_Accumulated_Waiting_Time\\'
+    if not os.path.exists(file_path_for_pic):
+        os.makedirs(file_path_for_pic)
     if Runtime % 1 == 0:
-        plt.savefig(path)
+        plt.savefig(file_path_for_pic + str(Runtime) + '.jpg')
     plt.pause(0.0000001)
 
 
@@ -180,8 +182,10 @@ def plot3(alpha):
     ax1.plot(alpha)
     Runtime = len(alpha)
 
-    # save
-    path = 'pic+0/pic' + 'Alpha' + str(Runtime) + '.jpg'
+    path = os.getcwd()
+    file_path_for_pic = path + '\\pic\\Alpha\\'
+    if not os.path.exists(file_path_for_pic):
+        os.makedirs(file_path_for_pic)
     if Runtime % 1 == 0:
-        plt.savefig(path)
+        plt.savefig(file_path_for_pic +  str(Runtime) + '.jpg')
     plt.pause(0.0000001)

@@ -4,9 +4,9 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
-        <net-file value="Data/Metro_Intersection.net.xml"/>
-        <route-files value="Data/Metro_Intersection.rou.xml"/>
-        <additional-files value="Data/Metro_Intersection.add.xml"/>
+        <net-file value="road_network_doc/Metro_Intersection.net.xml"/>
+        <route-files value="road_network_doc/Metro_Intersection.rou.xml"/>
+        <additional-files value="road_network_doc/Metro_Intersection.add.xml"/>
     </input>
 
     <time>

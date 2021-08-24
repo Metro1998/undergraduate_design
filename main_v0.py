@@ -1,20 +1,17 @@
 # @author  Wolfie
 # @date    2021-05-24
 
-import os
-import sys
 import itertools
 import traci
 import numpy as np
 import datetime
-import torch
 from sac import SAC
 from torch.utils.tensorboard import SummaryWriter
-from replay_memory import ReplayMemory
-from demand_modeling import Demand_Modeling
-from reward_modeling import Reward_Modeling
-from para_dict import *
-from utils import generate_routefile, plot1, plot2, plot3
+from utilities.replay_memory import ReplayMemory
+from utilities.demand_modeling import Demand_Modeling
+from utilities.reward_modeling import Reward_Modeling
+from utilities.para_dict import *
+from utilities.utilities import generate_routefile, plot1, plot2, plot3
 
 # Agent
 agent = SAC()
@@ -58,8 +55,8 @@ for i_episode in itertools.count(1):
 
     # Start an instance of env
     # we need to import python modules from the $SUMO_HOME/tools directory
-    generate_routefile()
-    traci.start(["sumo", "-c", "Data/Metro_Intersection.sumocfg"], label="sim1")
+    # generate_routefile()
+    traci.start(["sumo", "-c", "road_network_doc/Metro_Intersection.sumocfg"], label="sim1")
 
     # we use action_old to store the old action for comparing
     action_old = None
