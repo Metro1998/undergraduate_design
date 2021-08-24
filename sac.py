@@ -2,7 +2,7 @@ import os
 import torch
 import torch.nn.functional as F
 from torch.optim import Adam
-from utils import soft_update, hard_update
+from utilities.utilities import soft_update, hard_update
 from model import GaussianPolicy, QNetwork
 import numpy as np
 
@@ -32,6 +32,7 @@ class SAC(object):
 
         self.target_entropy = -torch.Tensor([1.0]).to(self.device).item()
         self.log_alpha = torch.zeros(1, requires_grad=True, device=self.device)
+
         self.alpha_optimizer = Adam([self.log_alpha], lr=self.lr)
 
         self.policy = GaussianPolicy(self.num_inputs, self.num_actions, self.hidden_size).to(
@@ -124,3 +125,6 @@ class SAC(object):
             self.policy.load_state_dict(torch.load(actor_path))
         if critic_path is not None:
             self.critic.load_state_dict(torch.load(critic_path))
+
+    def get_alpha(self):
+        return self.alpha

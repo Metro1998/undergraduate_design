@@ -1,0 +1,52 @@
+<connections>
+  <connection xmlns:fromLane="0" xmlns:toLane="0" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="1" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="2" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="0" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="1" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="2" from="east_u" to="east_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="0" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="1" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="2" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="0" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="1" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="2" from="south_u" to="south_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="0" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="1" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="2" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="0" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="1" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="2" from="north_u" to="north_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="0" from="west_u" to="west_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="1" from="west_u" to="west_c"/>
+  <connection xmlns:fromLane="0" xmlns:toLane="2" from="west_u" to="west_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="0" from="west_u" to="west_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="1" from="west_u" to="west_c"/>
+  <connection xmlns:fromLane="1" xmlns:toLane="2" from="west_u" to="west_c"/>
+
+  <connection from="north_c" to="west_out" fromLane="0" toLane="0" tl="SmartMetro" linkIndex="0" contPos="0"/>
+  <connection from="north_c" to="west_out" fromLane="0" toLane="1" tl="SmartMetro" linkIndex="1" contPos="0"/>
+  <connection from="north_c" to="south_out" fromLane="1" toLane="0" tl="SmartMetro" linkIndex="2" contPos="0"/>
+  <connection from="north_c" to="south_out" fromLane="1" toLane="1" tl="SmartMetro" linkIndex="3" contPos="0"/>
+  <connection from="north_c" to="east_out" fromLane="2" toLane="0" tl="SmartMetro" linkIndex="4" contPos="0"/>
+  <connection from="north_c" to="east_out" fromLane="2" toLane="1" tl="SmartMetro" linkIndex="5" contPos="0"/>
+  <connection from="east_c" to="north_out" fromLane="0" toLane="0" tl="SmartMetro" linkIndex="6" contPos="0"/>
+  <connection from="east_c" to="north_out" fromLane="0" toLane="1" tl="SmartMetro" linkIndex="7" contPos="0"/>
+  <connection from="east_c" to="west_out" fromLane="1" toLane="0" tl="SmartMetro" linkIndex="8" contPos="0"/>
+  <connection from="east_c" to="west_out" fromLane="1" toLane="1" tl="SmartMetro" linkIndex="9" contPos="0"/>
+  <connection from="east_c" to="south_out" fromLane="2" toLane="0" tl="SmartMetro" linkIndex="10" contPos="0"/>
+  <connection from="east_c" to="south_out" fromLane="2" toLane="1" tl="SmartMetro" linkIndex="11" contPos="0"/>
+  <connection from="south_c" to="east_out" fromLane="0" toLane="0" tl="SmartMetro" linkIndex="12" contPos="0"/>
+  <connection from="south_c" to="east_out" fromLane="0" toLane="1" tl="SmartMetro" linkIndex="13" contPos="0"/>
+  <connection from="south_c" to="north_out" fromLane="1" toLane="0" tl="SmartMetro" linkIndex="14" contPos="0"/>
+  <connection from="south_c" to="north_out" fromLane="1" toLane="1" tl="SmartMetro" linkIndex="15" contPos="0"/>
+  <connection from="south_c" to="west_out" fromLane="2" toLane="0" tl="SmartMetro" linkIndex="16" contPos="0"/>
+  <connection from="south_c" to="west_out" fromLane="2" toLane="1" tl="SmartMetro" linkIndex="17" contPos="0"/>
+  <connection from="west_c" to="south_out" fromLane="0" toLane="0" tl="SmartMetro" linkIndex="18" contPos="0"/>
+  <connection from="west_c" to="south_out" fromLane="0" toLane="1" tl="SmartMetro" linkIndex="19" contPos="0"/>
+  <connection from="west_c" to="east_out" fromLane="1" toLane="0" tl="SmartMetro" linkIndex="20" contPos="0"/>
+  <connection from="west_c" to="east_out" fromLane="1" toLane="1" tl="SmartMetro" linkIndex="21" contPos="0"/>
+  <connection from="west_c" to="north_out" fromLane="2" toLane="0" tl="SmartMetro" linkIndex="22" contPos="0"/>
+  <connection from="west_c" to="north_out" fromLane="2" toLane="1" tl="SmartMetro" linkIndex="23" contPos="0"/>
+
+</connections>

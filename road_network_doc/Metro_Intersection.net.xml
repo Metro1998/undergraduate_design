@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 05/25/21 11:33:48 by Eclipse SUMO netconvert Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="Metro_Intersection.nod.xml"/>
+        <edge-files value="Metro_Intersection.edg.xml"/>
+        <connection-files value="Metro_Intersection.con.xml"/>
+    </input>
+
+    <output>
+        <output-file value="Metro_Intersection.net.xml"/>
+    </output>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<net version="1.6" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="250.00,250.00" convBoundary="0.00,0.00,500.00,500.00" origBoundary="-250.00,-250.00,250.00,250.00" projParameter="!"/>
+
+    <edge id=":SmartMetro_0" function="internal">
+        <lane id=":SmartMetro_0_0" index="0" allow="custom2" speed="7.63" length="12.64" width="3.75" shape="240.63,265.25 240.26,261.04 239.16,258.03 237.32,256.23 234.75,255.63"/>
+    </edge>
+    <edge id=":SmartMetro_1" function="internal">
+        <lane id=":SmartMetro_1_0" index="0" allow="custom2" speed="8.51" length="16.00" width="3.75" shape="240.63,265.25 240.26,259.40 239.16,255.22 237.32,252.71 234.75,251.88"/>
+    </edge>
+    <edge id=":SmartMetro_2" function="internal">
+        <lane id=":SmartMetro_2_0" index="0" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="244.38,265.25 244.38,234.75"/>
+        <lane id=":SmartMetro_2_1" index="1" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="244.38,265.25 244.96,255.56 246.25,248.13 247.54,241.63 248.13,234.75"/>
+    </edge>
+    <edge id=":SmartMetro_4" function="internal">
+        <lane id=":SmartMetro_4_0" index="0" allow="private" speed="11.58" length="30.70" width="3.75" shape="248.13,265.25 249.20,256.12 252.41,249.59 257.76,245.68 265.25,244.38"/>
+    </edge>
+    <edge id=":SmartMetro_5" function="internal">
+        <lane id=":SmartMetro_5_0" index="0" allow="private" speed="11.01" length="27.62" width="3.75" shape="248.13,265.25 249.20,257.76 252.41,252.41 257.76,249.20 265.25,248.13"/>
+    </edge>
+    <edge id=":SmartMetro_6" function="internal">
+        <lane id=":SmartMetro_6_0" index="0" allow="custom2" speed="7.63" length="12.64" width="3.75" shape="265.25,259.38 261.04,259.74 258.03,260.84 256.23,262.68 255.63,265.25"/>
+    </edge>
+    <edge id=":SmartMetro_7" function="internal">
+        <lane id=":SmartMetro_7_0" index="0" allow="custom2" speed="8.51" length="16.00" width="3.75" shape="265.25,259.38 259.40,259.74 255.22,260.84 252.71,262.68 251.88,265.25"/>
+    </edge>
+    <edge id=":SmartMetro_8" function="internal">
+        <lane id=":SmartMetro_8_0" index="0" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="265.25,255.63 234.75,255.63"/>
+        <lane id=":SmartMetro_8_1" index="1" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="265.25,255.63 255.56,255.04 248.13,253.75 241.63,252.46 234.75,251.88"/>
+    </edge>
+    <edge id=":SmartMetro_10" function="internal">
+        <lane id=":SmartMetro_10_0" index="0" allow="private" speed="11.58" length="30.70" width="3.75" shape="265.25,251.88 256.12,250.80 249.59,247.59 245.68,242.24 244.38,234.75"/>
+    </edge>
+    <edge id=":SmartMetro_11" function="internal">
+        <lane id=":SmartMetro_11_0" index="0" allow="private" speed="11.01" length="27.62" width="3.75" shape="265.25,251.88 257.76,250.80 252.41,247.59 249.20,242.24 248.13,234.75"/>
+    </edge>
+    <edge id=":SmartMetro_12" function="internal">
+        <lane id=":SmartMetro_12_0" index="0" allow="custom2" speed="7.63" length="12.64" width="3.75" shape="259.38,234.75 259.74,238.96 260.84,241.97 262.68,243.77 265.25,244.38"/>
+    </edge>
+    <edge id=":SmartMetro_13" function="internal">
+        <lane id=":SmartMetro_13_0" index="0" allow="custom2" speed="8.51" length="16.00" width="3.75" shape="259.38,234.75 259.74,240.60 260.84,244.78 262.68,247.29 265.25,248.13"/>
+    </edge>
+    <edge id=":SmartMetro_14" function="internal">
+        <lane id=":SmartMetro_14_0" index="0" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="255.63,234.75 255.63,265.25"/>
+        <lane id=":SmartMetro_14_1" index="1" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="255.63,234.75 255.04,244.44 253.75,251.88 252.46,258.38 251.88,265.25"/>
+    </edge>
+    <edge id=":SmartMetro_16" function="internal">
+        <lane id=":SmartMetro_16_0" index="0" allow="private" speed="11.58" length="30.70" width="3.75" shape="251.88,234.75 250.80,243.88 247.59,250.41 242.24,254.32 234.75,255.63"/>
+    </edge>
+    <edge id=":SmartMetro_17" function="internal">
+        <lane id=":SmartMetro_17_0" index="0" allow="private" speed="11.01" length="27.62" width="3.75" shape="251.88,234.75 250.80,242.24 247.59,247.59 242.24,250.80 234.75,251.88"/>
+    </edge>
+    <edge id=":SmartMetro_18" function="internal">
+        <lane id=":SmartMetro_18_0" index="0" allow="custom2" speed="7.63" length="12.64" width="3.75" shape="234.75,240.63 238.96,240.26 241.97,239.16 243.77,237.32 244.38,234.75"/>
+    </edge>
+    <edge id=":SmartMetro_19" function="internal">
+        <lane id=":SmartMetro_19_0" index="0" allow="custom2" speed="8.51" length="16.00" width="3.75" shape="234.75,240.63 240.60,240.26 244.78,239.16 247.29,237.32 248.13,234.75"/>
+    </edge>
+    <edge id=":SmartMetro_20" function="internal">
+        <lane id=":SmartMetro_20_0" index="0" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="234.75,244.38 265.25,244.38"/>
+        <lane id=":SmartMetro_20_1" index="1" allow="custom1" speed="26.95" length="30.64" width="3.75" shape="234.75,244.38 244.44,244.96 251.88,246.25 258.38,247.54 265.25,248.13"/>
+    </edge>
+    <edge id=":SmartMetro_22" function="internal">
+        <lane id=":SmartMetro_22_0" index="0" allow="private" speed="11.58" length="30.70" width="3.75" shape="234.75,248.13 243.88,249.20 250.41,252.41 254.32,257.76 255.63,265.25"/>
+    </edge>
+    <edge id=":SmartMetro_23" function="internal">
+        <lane id=":SmartMetro_23_0" index="0" allow="private" speed="11.01" length="27.62" width="3.75" shape="234.75,248.13 242.24,249.20 247.59,252.41 250.80,257.76 251.88,265.25"/>
+    </edge>
+    <edge id=":east_input_0" function="internal">
+        <lane id=":east_input_0_0" index="0" speed="5.11" length="10.96" width="3.75" shape="500.00,248.13 502.81,250.00 503.75,251.88 502.81,253.75 500.00,255.63"/>
+    </edge>
+    <edge id=":east_interface_0" function="internal">
+        <lane id=":east_interface_0_0" index="0" allow="custom2" speed="40.00" length="8.36" width="3.75" shape="304.00,259.38 296.00,259.38"/>
+        <lane id=":east_interface_0_1" index="1" allow="custom1" speed="40.00" length="8.36" width="3.75" shape="304.00,255.63 296.00,255.63"/>
+        <lane id=":east_interface_0_2" index="2" allow="private" speed="40.00" length="8.36" width="3.75" shape="304.00,255.63 301.51,255.04 300.00,253.75 298.49,252.46 296.00,251.88"/>
+    </edge>
+    <edge id=":north_input_0" function="internal">
+        <lane id=":north_input_0_0" index="0" speed="5.11" length="10.96" width="3.75" shape="251.88,500.00 250.00,502.81 248.12,503.75 246.25,502.81 244.37,500.00"/>
+    </edge>
+    <edge id=":north_interface_0" function="internal">
+        <lane id=":north_interface_0_0" index="0" allow="custom2" speed="40.00" length="8.36" width="3.75" shape="240.62,304.00 240.63,296.00"/>
+        <lane id=":north_interface_0_1" index="1" allow="custom1" speed="40.00" length="8.36" width="3.75" shape="244.37,304.00 244.38,296.00"/>
+        <lane id=":north_interface_0_2" index="2" allow="private" speed="40.00" length="8.36" width="3.75" shape="244.37,304.00 244.96,301.51 246.25,300.00 247.54,298.49 248.13,296.00"/>
+    </edge>
+    <edge id=":south_input_0" function="internal">
+        <lane id=":south_input_0_0" index="0" speed="5.11" length="10.96" width="3.75" shape="248.13,0.00 250.00,-2.81 251.88,-3.75 253.75,-2.81 255.63,0.00"/>
+    </edge>
+    <edge id=":south_interface_0" function="internal">
+        <lane id=":south_interface_0_0" index="0" allow="custom2" speed="40.00" length="8.36" width="3.75" shape="259.38,196.00 259.38,204.00"/>
+        <lane id=":south_interface_0_1" index="1" allow="custom1" speed="40.00" length="8.36" width="3.75" shape="255.63,196.00 255.63,204.00"/>
+        <lane id=":south_interface_0_2" index="2" allow="private" speed="40.00" length="8.36" width="3.75" shape="255.63,196.00 255.04,198.49 253.75,200.00 252.46,201.51 251.88,204.00"/>
+    </edge>
+    <edge id=":west_input_0" function="internal">
+        <lane id=":west_input_0_0" index="0" speed="5.11" length="10.96" width="3.75" shape="0.00,251.88 -2.81,250.00 -3.75,248.12 -2.81,246.25 0.00,244.37"/>
+    </edge>
+    <edge id=":west_interface_0" function="internal">
+        <lane id=":west_interface_0_0" index="0" allow="custom2" speed="40.00" length="8.36" width="3.75" shape="196.00,240.62 204.00,240.63"/>
+        <lane id=":west_interface_0_1" index="1" allow="custom1" speed="40.00" length="8.36" width="3.75" shape="196.00,244.37 204.00,244.38"/>
+        <lane id=":west_interface_0_2" index="2" allow="private" speed="40.00" length="8.36" width="3.75" shape="196.00,244.37 198.49,244.96 200.00,246.25 201.51,247.54 204.00,248.13"/>
+    </edge>
+
+    <edge id="east_c" from="east_interface" to="SmartMetro" priority="-1">
+        <lane id="east_c_0" index="0" allow="custom2" speed="40.00" length="30.75" width="3.75" shape="296.00,259.38 265.25,259.38"/>
+        <lane id="east_c_1" index="1" allow="custom1" speed="40.00" length="30.75" width="3.75" shape="296.00,255.63 265.25,255.63"/>
+        <lane id="east_c_2" index="2" allow="private" speed="40.00" length="30.75" width="3.75" shape="296.00,251.88 265.25,251.88"/>
+    </edge>
+    <edge id="east_out" from="SmartMetro" to="east_input" priority="-1">
+        <lane id="east_out_0" index="0" speed="13.89" length="234.75" width="3.75" shape="265.25,244.38 500.00,244.38"/>
+        <lane id="east_out_1" index="1" speed="13.89" length="234.75" width="3.75" shape="265.25,248.13 500.00,248.13"/>
+    </edge>
+    <edge id="east_u" from="east_input" to="east_interface" priority="-1">
+        <lane id="east_u_0" index="0" speed="40.00" length="196.00" width="3.75" customShape="1" shape="500.00,259.38 304.00,259.38"/>
+        <lane id="east_u_1" index="1" speed="40.00" length="196.00" width="3.75" customShape="1" shape="500.00,255.63 304.00,255.63"/>
+    </edge>
+    <edge id="north_c" from="north_interface" to="SmartMetro" priority="-1">
+        <lane id="north_c_0" index="0" allow="custom2" speed="40.00" length="30.75" width="3.75" shape="240.63,296.00 240.63,265.25"/>
+        <lane id="north_c_1" index="1" allow="custom1" speed="40.00" length="30.75" width="3.75" shape="244.38,296.00 244.38,265.25"/>
+        <lane id="north_c_2" index="2" allow="private" speed="40.00" length="30.75" width="3.75" shape="248.13,296.00 248.13,265.25"/>
+    </edge>
+    <edge id="north_out" from="SmartMetro" to="north_input" priority="-1">
+        <lane id="north_out_0" index="0" speed="13.89" length="234.75" width="3.75" shape="255.63,265.25 255.63,500.00"/>
+        <lane id="north_out_1" index="1" speed="13.89" length="234.75" width="3.75" shape="251.88,265.25 251.88,500.00"/>
+    </edge>
+    <edge id="north_u" from="north_input" to="north_interface" priority="-1">
+        <lane id="north_u_0" index="0" speed="40.00" length="196.00" width="3.75" customShape="1" shape="240.62,500.00 240.62,304.00"/>
+        <lane id="north_u_1" index="1" speed="40.00" length="196.00" width="3.75" customShape="1" shape="244.37,500.00 244.37,304.00"/>
+    </edge>
+    <edge id="south_c" from="south_interface" to="SmartMetro" priority="-1">
+        <lane id="south_c_0" index="0" allow="custom2" speed="40.00" length="30.75" width="3.75" shape="259.38,204.00 259.38,234.75"/>
+        <lane id="south_c_1" index="1" allow="custom1" speed="40.00" length="30.75" width="3.75" shape="255.63,204.00 255.63,234.75"/>
+        <lane id="south_c_2" index="2" allow="private" speed="40.00" length="30.75" width="3.75" shape="251.88,204.00 251.88,234.75"/>
+    </edge>
+    <edge id="south_out" from="SmartMetro" to="south_input" priority="-1">
+        <lane id="south_out_0" index="0" speed="13.89" length="234.75" width="3.75" shape="244.38,234.75 244.38,0.00"/>
+        <lane id="south_out_1" index="1" speed="13.89" length="234.75" width="3.75" shape="248.13,234.75 248.13,0.00"/>
+    </edge>
+    <edge id="south_u" from="south_input" to="south_interface" priority="-1">
+        <lane id="south_u_0" index="0" speed="40.00" length="196.00" width="3.75" customShape="1" shape="259.38,0.00 259.38,196.00"/>
+        <lane id="south_u_1" index="1" speed="40.00" length="196.00" width="3.75" customShape="1" shape="255.63,0.00 255.63,196.00"/>
+    </edge>
+    <edge id="west_c" from="west_interface" to="SmartMetro" priority="-1">
+        <lane id="west_c_0" index="0" allow="custom2" speed="40.00" length="30.75" width="3.75" shape="204.00,240.63 234.75,240.63"/>
+        <lane id="west_c_1" index="1" allow="custom1" speed="40.00" length="30.75" width="3.75" shape="204.00,244.38 234.75,244.38"/>
+        <lane id="west_c_2" index="2" allow="private" speed="40.00" length="30.75" width="3.75" shape="204.00,248.13 234.75,248.13"/>
+    </edge>
+    <edge id="west_out" from="SmartMetro" to="west_input" priority="-1">
+        <lane id="west_out_0" index="0" speed="13.89" length="234.75" width="3.75" shape="234.75,255.63 0.00,255.63"/>
+        <lane id="west_out_1" index="1" speed="13.89" length="234.75" width="3.75" shape="234.75,251.88 0.00,251.88"/>
+    </edge>
+    <edge id="west_u" from="west_input" to="west_interface" priority="-1">
+        <lane id="west_u_0" index="0" speed="40.00" length="196.00" width="3.75" customShape="1" shape="0.00,240.62 196.00,240.62"/>
+        <lane id="west_u_1" index="1" speed="40.00" length="196.00" width="3.75" customShape="1" shape="0.00,244.37 196.00,244.37"/>
+    </edge>
+
+    <tlLogic id="SmartMetro" type="static" programID="0" offset="0">
+        <phase duration="33" state="GGGGggrrrrrrGGGGggrrrrrr"/>
+        <phase duration="3"  state="yyyyggrrrrrryyyyggrrrrrr"/>
+        <phase duration="6"  state="rrrrGGrrrrrrrrrrGGrrrrrr"/>
+        <phase duration="3"  state="rrrryyrrrrrrrrrryyrrrrrr"/>
+        <phase duration="33" state="rrrrrrGGGGggrrrrrrGGGGgg"/>
+        <phase duration="3"  state="rrrrrryyyyggrrrrrryyyygg"/>
+        <phase duration="6"  state="rrrrrrrrrrGGrrrrrrrrrrGG"/>
+        <phase duration="3"  state="rrrrrrrrrryyrrrrrrrrrryy"/>
+    </tlLogic>
+
+    <junction id="SmartMetro" type="traffic_light" x="250.00" y="250.00" incLanes="north_c_0 north_c_1 north_c_2 east_c_0 east_c_1 east_c_2 south_c_0 south_c_1 south_c_2 west_c_0 west_c_1 west_c_2" intLanes=":SmartMetro_0_0 :SmartMetro_1_0 :SmartMetro_2_0 :SmartMetro_2_1 :SmartMetro_4_0 :SmartMetro_5_0 :SmartMetro_6_0 :SmartMetro_7_0 :SmartMetro_8_0 :SmartMetro_8_1 :SmartMetro_10_0 :SmartMetro_11_0 :SmartMetro_12_0 :SmartMetro_13_0 :SmartMetro_14_0 :SmartMetro_14_1 :SmartMetro_16_0 :SmartMetro_17_0 :SmartMetro_18_0 :SmartMetro_19_0 :SmartMetro_20_0 :SmartMetro_20_1 :SmartMetro_22_0 :SmartMetro_23_0" shape="238.75,265.25 257.50,265.25 258.36,263.03 259.44,262.25 260.94,261.69 262.88,261.36 265.25,261.25 265.25,242.50 263.03,241.64 262.25,240.56 261.69,239.06 261.36,237.12 261.25,234.75 242.50,234.75 241.64,236.97 240.56,237.75 239.06,238.31 237.12,238.64 234.75,238.75 234.75,257.50 236.97,258.36 237.75,259.44 238.31,260.94 238.64,262.88">
+        <request index="0"  response="000000000000000000000000" foes="000000110000001100000000" cont="0"/>
+        <request index="1"  response="000000000000000000000000" foes="000000110000001100000000" cont="0"/>
+        <request index="2"  response="000000000000000000000000" foes="111111110000111100000000" cont="0"/>
+        <request index="3"  response="000000000000000000000000" foes="111111110000111100000000" cont="0"/>
+        <request index="4"  response="000000001111000000000000" foes="111100001111111100000000" cont="0"/>
+        <request index="5"  response="000000001111000000000000" foes="111100001111111100000000" cont="0"/>
+        <request index="6"  response="000000001100000000000000" foes="110000001100000000000000" cont="0"/>
+        <request index="7"  response="000000001100000000000000" foes="110000001100000000000000" cont="0"/>
+        <request index="8"  response="000000111100000000111111" foes="110000111100000000111111" cont="0"/>
+        <request index="9"  response="000000111100000000111111" foes="110000111100000000111111" cont="0"/>
+        <request index="10" response="001111111100000000111100" foes="001111111100000000111100" cont="0"/>
+        <request index="11" response="001111111100000000111100" foes="001111111100000000111100" cont="0"/>
+        <request index="12" response="000000000000000000000000" foes="001100000000000000110000" cont="0"/>
+        <request index="13" response="000000000000000000000000" foes="001100000000000000110000" cont="0"/>
+        <request index="14" response="000000000000000000000000" foes="111100000000111111110000" cont="0"/>
+        <request index="15" response="000000000000000000000000" foes="111100000000111111110000" cont="0"/>
+        <request index="16" response="000000000000000000001111" foes="111100000000111100001111" cont="0"/>
+        <request index="17" response="000000000000000000001111" foes="111100000000111100001111" cont="0"/>
+        <request index="18" response="000000000000000000001100" foes="000000000000110000001100" cont="0"/>
+        <request index="19" response="000000000000000000001100" foes="000000000000110000001100" cont="0"/>
+        <request index="20" response="000000111111000000111100" foes="000000111111110000111100" cont="0"/>
+        <request index="21" response="000000111111000000111100" foes="000000111111110000111100" cont="0"/>
+        <request index="22" response="000000111100001111111100" foes="000000111100001111111100" cont="0"/>
+        <request index="23" response="000000111100001111111100" foes="000000111100001111111100" cont="0"/>
+    </junction>
+    <junction id="east_input" type="priority" x="500.00" y="250.00" incLanes="east_out_0 east_out_1" intLanes=":east_input_0_0" shape="500.00,253.76 500.00,242.50 500.00,250.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="east_interface" type="priority" x="300.00" y="250.00" incLanes="east_u_0 east_u_1" intLanes=":east_interface_0_0 :east_interface_0_1 :east_interface_0_2" shape="304.00,261.26 304.00,253.76 300.94,252.78 299.06,250.97 297.82,250.28 296.00,250.00 296.00,261.25">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+    <junction id="north_input" type="priority" x="250.00" y="500.00" incLanes="north_out_0 north_out_1" intLanes=":north_input_0_0" shape="246.25,500.00 257.50,500.00 250.00,500.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="north_interface" type="priority" x="250.00" y="300.00" incLanes="north_u_0 north_u_1" intLanes=":north_interface_0_0 :north_interface_0_1 :north_interface_0_2" shape="238.75,304.00 246.25,304.00 247.22,300.94 249.03,299.06 249.72,297.82 250.00,296.00 238.75,296.00">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+    <junction id="south_input" type="priority" x="250.00" y="0.00" incLanes="south_out_0 south_out_1" intLanes=":south_input_0_0" shape="253.76,0.00 242.50,0.00 250.00,0.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="south_interface" type="priority" x="250.00" y="200.00" incLanes="south_u_0 south_u_1" intLanes=":south_interface_0_0 :south_interface_0_1 :south_interface_0_2" shape="250.00,204.00 261.25,204.00 261.26,196.00 253.76,196.00 252.78,199.06 250.97,200.94 250.28,202.18">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+    <junction id="west_input" type="priority" x="0.00" y="250.00" incLanes="west_out_0 west_out_1" intLanes=":west_input_0_0" shape="0.00,246.25 0.00,257.50 0.00,250.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="west_interface" type="priority" x="200.00" y="250.00" incLanes="west_u_0 west_u_1" intLanes=":west_interface_0_0 :west_interface_0_1 :west_interface_0_2" shape="204.00,250.00 204.00,238.75 196.00,238.75 196.00,246.25 199.06,247.22 200.94,249.03 202.18,249.72">
+        <request index="0" response="000" foes="000" cont="0"/>
+        <request index="1" response="000" foes="000" cont="0"/>
+        <request index="2" response="000" foes="000" cont="0"/>
+    </junction>
+
+    <connection from="east_c" to="north_out" fromLane="0" toLane="0" contPos="0.00" via=":SmartMetro_6_0" tl="SmartMetro" linkIndex="6" dir="r" state="o"/>
+    <connection from="east_c" to="north_out" fromLane="0" toLane="1" contPos="0.00" via=":SmartMetro_7_0" tl="SmartMetro" linkIndex="7" dir="r" state="o"/>
+    <connection from="east_c" to="west_out" fromLane="1" toLane="0" contPos="0.00" via=":SmartMetro_8_0" tl="SmartMetro" linkIndex="8" dir="s" state="o"/>
+    <connection from="east_c" to="west_out" fromLane="1" toLane="1" contPos="0.00" via=":SmartMetro_8_1" tl="SmartMetro" linkIndex="9" dir="s" state="o"/>
+    <connection from="east_c" to="south_out" fromLane="2" toLane="0" contPos="0.00" via=":SmartMetro_10_0" tl="SmartMetro" linkIndex="10" dir="l" state="o"/>
+    <connection from="east_c" to="south_out" fromLane="2" toLane="1" contPos="0.00" via=":SmartMetro_11_0" tl="SmartMetro" linkIndex="11" dir="l" state="o"/>
+    <connection from="east_out" to="east_u" fromLane="1" toLane="1" via=":east_input_0_0" dir="t" state="M"/>
+    <connection from="east_u" to="east_c" fromLane="0" toLane="0" via=":east_interface_0_0" dir="s" state="M"/>
+    <connection from="east_u" to="east_c" fromLane="1" toLane="1" via=":east_interface_0_1" dir="s" state="M"/>
+    <connection from="east_u" to="east_c" fromLane="1" toLane="2" via=":east_interface_0_2" dir="s" state="M"/>
+    <connection from="north_c" to="west_out" fromLane="0" toLane="0" contPos="0.00" via=":SmartMetro_0_0" tl="SmartMetro" linkIndex="0" dir="r" state="O"/>
+    <connection from="north_c" to="west_out" fromLane="0" toLane="1" contPos="0.00" via=":SmartMetro_1_0" tl="SmartMetro" linkIndex="1" dir="r" state="O"/>
+    <connection from="north_c" to="south_out" fromLane="1" toLane="0" contPos="0.00" via=":SmartMetro_2_0" tl="SmartMetro" linkIndex="2" dir="s" state="O"/>
+    <connection from="north_c" to="south_out" fromLane="1" toLane="1" contPos="0.00" via=":SmartMetro_2_1" tl="SmartMetro" linkIndex="3" dir="s" state="O"/>
+    <connection from="north_c" to="east_out" fromLane="2" toLane="0" contPos="0.00" via=":SmartMetro_4_0" tl="SmartMetro" linkIndex="4" dir="l" state="o"/>
+    <connection from="north_c" to="east_out" fromLane="2" toLane="1" contPos="0.00" via=":SmartMetro_5_0" tl="SmartMetro" linkIndex="5" dir="l" state="o"/>
+    <connection from="north_out" to="north_u" fromLane="1" toLane="1" via=":north_input_0_0" dir="t" state="M"/>
+    <connection from="north_u" to="north_c" fromLane="0" toLane="0" via=":north_interface_0_0" dir="s" state="M"/>
+    <connection from="north_u" to="north_c" fromLane="1" toLane="1" via=":north_interface_0_1" dir="s" state="M"/>
+    <connection from="north_u" to="north_c" fromLane="1" toLane="2" via=":north_interface_0_2" dir="s" state="M"/>
+    <connection from="south_c" to="east_out" fromLane="0" toLane="0" contPos="0.00" via=":SmartMetro_12_0" tl="SmartMetro" linkIndex="12" dir="r" state="O"/>
+    <connection from="south_c" to="east_out" fromLane="0" toLane="1" contPos="0.00" via=":SmartMetro_13_0" tl="SmartMetro" linkIndex="13" dir="r" state="O"/>
+    <connection from="south_c" to="north_out" fromLane="1" toLane="0" contPos="0.00" via=":SmartMetro_14_0" tl="SmartMetro" linkIndex="14" dir="s" state="O"/>
+    <connection from="south_c" to="north_out" fromLane="1" toLane="1" contPos="0.00" via=":SmartMetro_14_1" tl="SmartMetro" linkIndex="15" dir="s" state="O"/>
+    <connection from="south_c" to="west_out" fromLane="2" toLane="0" contPos="0.00" via=":SmartMetro_16_0" tl="SmartMetro" linkIndex="16" dir="l" state="o"/>
+    <connection from="south_c" to="west_out" fromLane="2" toLane="1" contPos="0.00" via=":SmartMetro_17_0" tl="SmartMetro" linkIndex="17" dir="l" state="o"/>
+    <connection from="south_out" to="south_u" fromLane="1" toLane="1" via=":south_input_0_0" dir="t" state="M"/>
+    <connection from="south_u" to="south_c" fromLane="0" toLane="0" via=":south_interface_0_0" dir="s" state="M"/>
+    <connection from="south_u" to="south_c" fromLane="1" toLane="1" via=":south_interface_0_1" dir="s" state="M"/>
+    <connection from="south_u" to="south_c" fromLane="1" toLane="2" via=":south_interface_0_2" dir="s" state="M"/>
+    <connection from="west_c" to="south_out" fromLane="0" toLane="0" contPos="0.00" via=":SmartMetro_18_0" tl="SmartMetro" linkIndex="18" dir="r" state="o"/>
+    <connection from="west_c" to="south_out" fromLane="0" toLane="1" contPos="0.00" via=":SmartMetro_19_0" tl="SmartMetro" linkIndex="19" dir="r" state="o"/>
+    <connection from="west_c" to="east_out" fromLane="1" toLane="0" contPos="0.00" via=":SmartMetro_20_0" tl="SmartMetro" linkIndex="20" dir="s" state="o"/>
+    <connection from="west_c" to="east_out" fromLane="1" toLane="1" contPos="0.00" via=":SmartMetro_20_1" tl="SmartMetro" linkIndex="21" dir="s" state="o"/>
+    <connection from="west_c" to="north_out" fromLane="2" toLane="0" contPos="0.00" via=":SmartMetro_22_0" tl="SmartMetro" linkIndex="22" dir="l" state="o"/>
+    <connection from="west_c" to="north_out" fromLane="2" toLane="1" contPos="0.00" via=":SmartMetro_23_0" tl="SmartMetro" linkIndex="23" dir="l" state="o"/>
+    <connection from="west_out" to="west_u" fromLane="1" toLane="1" via=":west_input_0_0" dir="t" state="M"/>
+    <connection from="west_u" to="west_c" fromLane="0" toLane="0" via=":west_interface_0_0" dir="s" state="M"/>
+    <connection from="west_u" to="west_c" fromLane="1" toLane="1" via=":west_interface_0_1" dir="s" state="M"/>
+    <connection from="west_u" to="west_c" fromLane="1" toLane="2" via=":west_interface_0_2" dir="s" state="M"/>
+
+    <connection from=":SmartMetro_0" to="west_out" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":SmartMetro_1" to="west_out" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":SmartMetro_2" to="south_out" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":SmartMetro_2" to="south_out" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":SmartMetro_4" to="east_out" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":SmartMetro_5" to="east_out" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":SmartMetro_6" to="north_out" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":SmartMetro_7" to="north_out" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":SmartMetro_8" to="west_out" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":SmartMetro_8" to="west_out" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":SmartMetro_10" to="south_out" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":SmartMetro_11" to="south_out" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":SmartMetro_12" to="east_out" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":SmartMetro_13" to="east_out" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":SmartMetro_14" to="north_out" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":SmartMetro_14" to="north_out" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":SmartMetro_16" to="west_out" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":SmartMetro_17" to="west_out" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":SmartMetro_18" to="south_out" fromLane="0" toLane="0" dir="r" state="M"/>
+    <connection from=":SmartMetro_19" to="south_out" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":SmartMetro_20" to="east_out" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":SmartMetro_20" to="east_out" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":SmartMetro_22" to="north_out" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":SmartMetro_23" to="north_out" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":east_input_0" to="east_u" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":east_interface_0" to="east_c" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":east_interface_0" to="east_c" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":east_interface_0" to="east_c" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":north_input_0" to="north_u" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":north_interface_0" to="north_c" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":north_interface_0" to="north_c" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":north_interface_0" to="north_c" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":south_input_0" to="south_u" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":south_interface_0" to="south_c" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":south_interface_0" to="south_c" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":south_interface_0" to="south_c" fromLane="2" toLane="2" dir="s" state="M"/>
+    <connection from=":west_input_0" to="west_u" fromLane="0" toLane="1" dir="t" state="M"/>
+    <connection from=":west_interface_0" to="west_c" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":west_interface_0" to="west_c" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":west_interface_0" to="west_c" fromLane="2" toLane="2" dir="s" state="M"/>
+
+</net>
