@@ -9,7 +9,7 @@ I'm sorry there is no expression like env.step() and  env.render() at present, b
 
 # Agent
 The agent is based on the SAC(soft actor and critic). 
-The basic model is defined in model.py and a SAC class is in SAC.py. 
+The basic model is defined in model.py and a SAC class is in sac.py. 
 
 # Hyparameters
 I'm sorry there is no api in terminal, and if you wanna to change the hyparameters, just change the config instance which is in main.py
