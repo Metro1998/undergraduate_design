@@ -13,6 +13,11 @@ The basic model is defined in model.py and a SAC class is in SAC.py.
 
 # Hyparameters
 I'm sorry there is no api in terminal, and if you wanna to change the hyparameters, just change the config instance which is in main.py
+ 
+# Result
+The comparison is so complicated that I just upload one pic to demonstrate the performance of the algorithm.  
+It's the result when the blame = 0.6.  
+![image](https://user-images.githubusercontent.com/51565689/130783094-bac2858c-8eb7-4f18-bc41-08c2df452097.png)
 
 # To Do List  
 Env pakaging.  
@@ -21,4 +26,5 @@ model of state space.
 
 # @Author
 Wolfie 2021.08.25. 
+
 
