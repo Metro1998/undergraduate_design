@@ -28,7 +28,40 @@ It's the result when the blame = 0.6.
 # 中文版使用指南
 首先需要说明的是，训练和评估智能体，不需要传入任何参数，其中的超参数由config实例定义，config实例在`main,py`内。 
 
-## 如果修改训练和评估环境
+## `road_network_doc`
+这里面存放的是一个单点交叉口基于sumo的依赖文件；  
+如果你想对路网结构进行更新（非常不建议，如果将环境视作一个benchmark的话），请更新.con\\.nod.\\.edge文件；各个进口道的流量由.rou文件来控制，.rou文件在实际运行过程中有一个写入的过程，详见`utilities.utilities.py`；  
+在修改了一系列sumo依赖文件之后，别忘了重新生成.sumocfg文件，它是后续强化学习算法的主要依赖。  
+
+## `runs`
+这里面存放的是SAC算法网络参数
+
+## `utilities`
+这里面存放的是一些效用函数。  
+`demand.modeling.py`需求生成模块，主要获取交叉口各进口道车辆的位置与转向，并通过blame模块生成绝对需求与相对需求；  
+`para_dic.py`是一个存放相关变量的字典；  
+`replay_memory.py`经验回放的容器，无需过多介绍；  
+`reward_modeling.py`奖励建模模块，其中有两个method`get_max_veh_accumulated_waiting_time()`与`get_avg_veh_accumulated_waiting_time`主要获取累计排队时间与最大排队时间
+
+## `config.py`
+其主要目的是建立一些超参数的实例，因此，可以想见的是，我们并没有为终端操作提供一系列的接口，如果你想修改其中的超参数，再建立config实例之后对，config的变量进行修改。  
+
+## `is.py`
+这一部分是没有完成的，因此，它在TO DO LIST 中，其主要目的是将交叉口环境封装成一个Env class。  
+
+## `model.py`
+这是SAC算法需要继承的网络的class，其中包括`Qnetwork`以及`GaussianPolicy`，因为这个在RL 领域已经很成熟了，因此没有太大的必要对这一部分进行修改。  
+
+## `sac.py`
+其中定义了SAC 这个class，包括其动作价值网络以及策略网络更新的一个过程。  
+
+## `train_and_evaluate.py`
+其中定义了sac算法与环境进行交互的过程，同时包括了训练与评价两个过程，如果你想对训练或者评价的过程进行针对性的修改，请对它进行修改。  
+
+## `main.py`
+代码运行的主程序，在运行之前需要对config实例中的参数进行修改。  
+
+## 如何修改训练和评估环境
 请对`road_network_doc`中的`Metro_Intersection.rou.xml`进行修改，你可以使用现实交叉口的车辆数据。  
 但是当你重新定义route文件之后请重新生成`Metro_Intersection.sumocfg`文件，因为在环境交互的过程中，我们主要依赖的是这个文件。  
 
