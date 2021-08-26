@@ -11,8 +11,9 @@ I'm sorry there is no expression like **env.step()** and  __env.render()__ at pr
 The agent is based on the **SAC**(soft actor and critic). 
 The basic model is defined in `model.py` and a SAC class is in `sac.py`. 
 
-## Hyparameters
-I'm sorry there is no api in terminal, and if you wanna to change the hyparameters, just change the config instance which is in `main.py`
+## How to excute
+I'm sorry there is no api in terminal, and if you wanna to change the hyparameters, just change the config instance which is in `main.py`.  
+Just excute `main.py`, and the instance trainer_and_evaluater will train and evaluate automately.  
  
 ## Result
 The comparison is so complicated that I just upload one pic to demonstrate the performance of the algorithm.  
